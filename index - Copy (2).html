@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>KARSAJ CONTENT</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-green.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style type="text/css">
+.auto-style6 {
+	font-family: "Segoe UI";
+	color: #FFC107;
+}
+.auto-style7 {
+	font-family: "Lucida Handwriting";
+	font-size: xx-large;
+}
+.auto-style9 {
+	display: none;
+	text-align: left;
+}
+.auto-style10 {
+	padding: 0.01em 16px;
+	text-align: left;
+}
+.auto-style11 {
+	text-decoration: none;
+	color: #00FFFF;
+}
+.auto-style12 {
+	text-decoration: none;
+}
+/* Navbar container */
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  font-family: Arial;
+}
+
+/* Links inside the navbar */
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* The dropdown container */
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+/* Dropdown button */
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: black;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit; /* Important for vertical align on mobile phones */
+  margin: 0; /* Important for vertical align on mobile phones */
+}
+
+/* Add a red background color to navbar links on hover */
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: grey;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+/* Add a grey background color to dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+</style>
+</head>
+<body>
+<br><br><br>
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+    <a href="index.html" class="w3-bar-item w3-button"><b>KARSAJ</b> CONTENT</a>
+    <!-- Float links to the right. Hide them on small screens -->
+    <div class="w3-right w3-show-small">
+      <a href="#About" class="w3-bar-item w3-button"><b>About</b></a>
+	  <div class="dropdown">
+    <button class="dropbtn" class="w3-bar-item w3-button"><b>Services</b>
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="#">Link 1</a>
+      <a href="#">Link 2</a>
+      <a href="#">Link 3</a>
+    </div>
+  </div>
+	
+      <a href="#Contact" class="w3-bar-item w3-button"><b>Contact</b></a>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
+  <img class="w3-image" src="karsaj.gif" alt="Architecture" width="1500" height="2000">
+  <div class="w3-display-middle w3-margin-top w3-center">
+    <h1 class="w3-large w3-text-white"><span class="w3-padding w3-green w3-opacity-min"><b>KARSAJ</b></span><span class="w3-padding w3-orange w3-opacity-min"><span class="w3-show-medium w3-text-white"><b>CONTENT</b></span></span></h1>
+<b><p class="w3-medium w3-text-white">Strategy, Design, Development, Marketing</p></b>
+  </div>
+</header>
+
+<!-- Page content -->
+<div class="w3-content w3-padding" style="max-width:1564px">
+
+
+
+<!--   <div class="w3-row-padding w3-grayscale">
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <img src="team2.jpg" alt="John" style="width:100%">
+      <h3>John Doe</h3>
+      <p class="w3-opacity">CEO & Founder</p>
+      <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+      <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <img src="team1.jpg" alt="Jane" style="width:100%">
+      <h3>Jane Doe</h3>
+      <p class="w3-opacity">Architect</p>
+      <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+      <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <img src="team3.jpg" alt="Mike" style="width:100%">
+      <h3>Mike Ross</h3>
+      <p class="w3-opacity">Architect</p>
+      <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+      <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <img src="team4.jpg" alt="Dan" style="width:100%">
+      <h3>Dan Star</h3>
+      <p class="w3-opacity">Architect</p>
+      <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+      <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
+    </div>
+  </div> -->
+
+ <!-- Project Section -->
+<!--   <div class="w3-container w3-padding-32" id="projects">
+    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Services</h3>
+  </div> -->
+
+<!--   <div class="w3-row-padding">
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-display-container">
+        <div class="w3-display-topleft w3-black w3-padding">Summer House</div>
+        <img src="house5.jpg" alt="House" style="width:100%">
+      </div>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-display-container">
+        <div class="w3-display-topleft w3-black w3-padding">Brick House</div>
+        <img src="house2.jpg" alt="House" style="width:100%">
+      </div>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-display-container">
+        <div class="w3-display-topleft w3-black w3-padding">Renovated</div>
+        <img src="house3.jpg" alt="House" style="width:100%">
+      </div>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-display-container">
+        <div class="w3-display-topleft w3-black w3-padding">Barn House</div>
+        <img src="house4.jpg" alt="House" style="width:100%">
+      </div>
+    </div>
+  </div> -->
+
+<!--   <div class="w3-row-padding">
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-display-container">
+        <div class="w3-display-topleft w3-black w3-padding">Summer House</div>
+        <img src="house2.jpg" alt="House" style="width:99%">
+      </div>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-display-container">
+        <div class="w3-display-topleft w3-black w3-padding">Brick House</div>
+        <img src="house5.jpg" alt="House" style="width:99%">
+      </div>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-display-container">
+        <div class="w3-display-topleft w3-black w3-padding">Renovated</div>
+        <img src="house4.jpg" alt="House" style="width:99%">
+      </div>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-display-container">
+        <div class="w3-display-topleft w3-black w3-padding">Barn House</div>
+        <img src="house3.jpg" alt="House" style="width:99%">
+      </div>
+    </div>
+  </div> -->
+
+
+  <!-- Contact Section -->
+
+
+
+
+<!-- End page content -->
+</div>
+
+
+
+
+		   <div class="w3-container" id="About">
+		   <h6 class="w3-border-bottom w3-border-light-grey"><b>What We Do</b></h6>
+		<p class="w3-border-bottom w3-border-light-grey">We help technical and non-technical organizations harness local and global marketing and support opportunies with clear and concise digital content, strategy, design, development, and delivery of solutions to effectively reach, engage and delight all current and future customers. <BR><BR> We do that by fully understanding your business needs and making sure you can leverage freely available digital tools to empower your business and your customers.<BR><BR> We have worked with digital communications for over two decades in hardware and software development documentation, cloud computing, digital marketing, graphic design, UX writing, instructional design and eLearning, content development and web design.  <BR><BR> We bring a wealth of knowledge, enthusiasm and precision to each engagement. We unleash your reach out there.</p></div>
+
+        
+               <!--  <p><a name="www"></a></p> -->
+        <div class="w3-container" id="Services">
+                <h6 class="w3-border-bottom w3-border-light-grey"><b>Why Digital Communications Matter</b></h6>
+			<!-- 	<p class="w3-border-bottom w3-border-light-grey">ghghghghgghg</p> -->
+        <button onclick="myAccFunc('Demo4')" class="w3-padding-16 w3-theme w3-button w3-block w3-left-align">Marketing Communications</button>
+        <div id="Demo4" class="w3-hide w3-black">
+            <div class="w3-container">
+                <p class="w3-left-align">More to follow.</p>
+            </div>
+        </div>
+        <button onclick="myAccFunc('Demo5')" class="w3-padding-16 w3-theme w3-button w3-block w3-left-align">Multimedia Communications</button>
+        <div id="Demo5" class="w3-hide w3-black">
+        <div class="w3-container">
+                <p class="w3-left-align" class="w3-animate-zoom">More to follow.</p>
+            </div>
+        </div>
+        <button onclick="myAccFunc('Demo6')" class="w3-padding-16 w3-theme w3-button w3-block w3-left-align">Strategic Communications</button>
+        <div id="Demo6" class="w3-hide w3-black">
+            <div class="w3-container">
+                                <p class="w3-center"><img src="Capture5.PNG"  style="width:100%" class="w3-animate-zoom"></p>
+
+            </div>
+        </div>
+        <button onclick="myAccFunc('Demo12')" class="w3-padding-16 w3-theme w3-button w3-block w3-left-align">Technical Communications</button>
+        <div id="Demo12" class="w3-hide w3-black">
+		<div class="auto-style10">
+                <p><a href="https://us8.list-manage.com/contact-form?u=3fa1d58d2ad3ba44981d0a215&form_id=10998f5fab8fb6773c887e98235b475d" target="blank">Request access.</a></p>
+
+            </div>
+        </div>
+</div>
+<BR>
+        <div class="w3-container" id="FAQ">
+        <h6 class="w3-border-bottom w3-border-light-grey"><b>Frequently Asked Questions</b></h6>
+		<!-- <p class="w3-border-bottom w3-border-light-grey">ghghghghgghg</p> -->
+		        <button onclick="myAccFunc('Demo14')" class="w3-padding-16 w3-theme w3-button w3-block w3-left-align">Question 1</button>
+        <div id="Demo14" class="w3-hide w3-black">
+            <div class="w3-container">
+                <p class="w3-left-align">More to follow.</p>
+            </div>
+        </div>
+        <button onclick="myAccFunc('Demo15')" class="w3-padding-16 w3-theme w3-button w3-block w3-left-align">Question 2</button>
+        <div id="Demo15" class="w3-hide w3-black">
+        <div class="w3-container">
+                <p class="w3-left-align" class="w3-animate-zoom">More to follow.</p>
+            </div>
+        </div>
+        <button onclick="myAccFunc('Demo16')" class="w3-padding-16 w3-theme w3-button w3-block w3-left-align">Question 3</button>
+        <div id="Demo16" class="w3-hide w3-black">
+            <div class="w3-container">
+                                <p class="w3-center"><img src="Capture5.PNG"  style="width:100%" class="w3-animate-zoom"></p>
+
+            </div>
+        </div>
+        <button onclick="myAccFunc('Demo120')" class="w3-padding-16 w3-theme w3-button w3-block w3-left-align">Question 4</button>
+        <div id="Demo120" class="w3-hide w3-black">
+		<div class="auto-style10">
+                <p><a href="https://us8.list-manage.com/contact-form?u=3fa1d58d2ad3ba44981d0a215&form_id=10998f5fab8fb6773c887e98235b475d" target="blank">Request access.</a></p>
+
+            </div>
+        </div>
+       <!--  <button onclick="myAccFunc('Demo7')" class="w3-padding-16 w3-theme w3-button w3-block w3-left-align">Join Us on Social Media</button>
+         <div id="Demo7" class="auto-style9">
+
+        <div class="w3-border">
+            <div class="w3-bar w3-theme">
+                <button class="w3-bar-item w3-button testbtn w3-padding-16" onclick="openCity(event,'London')">LinkedIn</button>
+                <button class="w3-bar-item w3-button testbtn w3-padding-16" onclick="openCity(event,'Paris')">FB</button>
+                <button class="w3-bar-item w3-button testbtn w3-padding-16" onclick="openCity(event,'Tokyo')">Twitter</button>
+                <button class="w3-bar-item w3-button testbtn w3-padding-16" onclick="openCity(event,'Madrid')">Instagram</button>
+
+            </div>
+
+            <div id="London" class="w3-container city w3-animate-opacity" style="text-align: left !important">
+                <h2></h2>
+       <img src="l.PNG" style="width:8%;" class="w3-animate-zoom"><p></p>
+
+            </div>
+
+            <div id="Paris" class="w3-container city w3-animate-opacity" style="text-align: left !important">
+                <h2></h2>
+                       <img src="f.PNG" style="width:8%;" class="w3-animate-zoom"><p></p>
+            </div>
+
+            <div id="Tokyo" class="w3-container city w3-animate-opacity" style="text-align: left !important">
+                <h2></h2>
+                      <img src="t.PNG" style="width:8%;" class="w3-animate-zoom"><p></p>
+            </div>
+              <div id="Madrid" class="w3-container city w3-animate-opacity" style="text-align: left !important">
+                <h2></h2>
+                       <img src="i.PNG" style="width:8%;" class="w3-animate-zoom"><p></p>
+            </div>
+
+       </div>
+        </div> -->
+		</div>
+
+  <!-- Contact Section -->
+  <br>
+  <div class="w3-container" id="Contact">
+    <h6 class="w3-border-bottom w3-border-light-grey"><b>Contact Us Today</b></h6>
+    <p class="w3-border-bottom w3-border-light-grey">Get in touch to discuss YOUR DIGITAL TRANSFORMATION.</p>
+    <form action="/action_page.php" target="_blank">
+      <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
+      <input class="w3-input w3-section w3-border" type="text" placeholder="Email" required name="Email">
+      <input class="w3-input w3-section w3-border" type="text" placeholder="Subject" required name="Subject">
+      <input class="w3-input w3-section w3-border" type="text" placeholder="Comment" required name="Comment">
+      <button class="w3-button w3-black w3-section" type="submit">
+        <i class="fa fa-paper-plane"></i> Send Message
+      </button>
+    </form>
+  </div>
+  
+<!-- Image of location/map -->
+<div class="w3-container">
+  <img src="map.jpg" class="w3-image" style="width:100%"><br>
+</div>
+<br>
+<button onclick="myAccFunc('Demo7')" class="w3-padding-16 w3-theme w3-button w3-block w3-left-align">Join Us on Social Media</button>
+         <div id="Demo7" class="auto-style9">
+
+        <div class="w3-border">
+            <div class="w3-bar w3-theme">
+                <button class="w3-bar-item w3-button testbtn w3-padding-16" onclick="openCity(event,'London')">LinkedIn</button>
+                <button class="w3-bar-item w3-button testbtn w3-padding-16" onclick="openCity(event,'Paris')">Facebook</button>
+                <button class="w3-bar-item w3-button testbtn w3-padding-16" onclick="openCity(event,'Tokyo')">Twitter</button>
+                <button class="w3-bar-item w3-button testbtn w3-padding-16" onclick="openCity(event,'Madrid')">Instagram</button>
+
+            </div>
+
+            <div id="London" class="w3-container city w3-animate-opacity" style="text-align: left !important">
+                <h2></h2>
+       <img src="l.PNG" style="width:8%;" class="w3-animate-zoom"><p></p>
+
+            </div>
+
+            <div id="Paris" class="w3-container city w3-animate-opacity" style="text-align: left !important">
+                <h2></h2>
+                       <img src="f.PNG" style="width:8%;" class="w3-animate-zoom"><p></p>
+            </div>
+
+            <div id="Tokyo" class="w3-container city w3-animate-opacity" style="text-align: left !important">
+                <h2></h2>
+                      <img src="t.PNG" style="width:8%;" class="w3-animate-zoom"><p></p>
+            </div>
+              <div id="Madrid" class="w3-container city w3-animate-opacity" style="text-align: left !important">
+                <h2></h2>
+                       <img src="i.PNG" style="width:8%;" class="w3-animate-zoom"><p></p>
+            </div>
+
+       </div>
+        </div>
+    <!-- Footer -->
+    <footer class="w3-container w3-theme-dark w3-padding-16">
+        <h3><a name="K"></a>KarSaj CONTENT</h3>
+		<p>Toronto, Canada</p>
+		<p>(647) 799-8640</p>
+		<p>
+		<a href="mailto:im@karsaj.com?subject=DIGITAL COMMERCE AND COMMUNICATIONS" class="auto-style12">
+		im@karsaj.com</a></p>
+       
+    </footer>
+
+    <!-- Script for Sidebar, Tabs, Accordions, Progress bars and slideshows -->
+    <script>
+        // Side navigation
+        function w3_open() {
+            var x = document.getElementById("mySidebar");
+            x.style.width = "100%";
+            x.style.fontSize = "40px";
+            x.style.paddingTop = "10%";
+            x.style.display = "block";
+        }
+        function w3_close() {
+            document.getElementById("mySidebar").style.display = "none";
+        }
+
+        // Tabs
+        function openCity(evt, cityName) {
+            var i;
+            var x = document.getElementsByClassName("city");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            var activebtn = document.getElementsByClassName("testbtn");
+            for (i = 0; i < x.length; i++) {
+                activebtn[i].className = activebtn[i].className.replace(" w3-dark-grey", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " w3-dark-grey";
+        }
+
+        var mybtn = document.getElementsByClassName("testbtn")[0];
+        mybtn.click();
+
+        // Accordions
+        function myAccFunc(id) {
+            var x = document.getElementById(id);
+            if (x.className.indexOf("w3-show") == -1) {
+                x.className += " w3-show";
+            } else {
+                x.className = x.className.replace(" w3-show", "");
+            }
+        }
+
+        // Slideshows
+        var slideIndex = 1;
+
+        function plusDivs(n) {
+            slideIndex = slideIndex + n;
+            showDivs(slideIndex);
+        }
+
+        function showDivs(n) {
+            var x = document.getElementsByClassName("mySlides");
+            if (n > x.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = x.length };
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            x[slideIndex - 1].style.display = "block";
+        }
+
+        showDivs(1);
+
+        // Progress Bars
+        function move() {
+            var elem = document.getElementById("myBar");
+            var width = 5;
+            var id = setInterval(frame, 10);
+            function frame() {
+                if (width == 100) {
+                    clearInterval(id);
+                } else {
+                    width++;
+                    elem.style.width = width + '%';
+                    elem.innerHTML = width * 1 + '%';
+                }
+            }
+        }
+    </script>
+</div>
+
+<!-- Footer -->
+<<!-- footer class="w3-center w3-black w3-padding-16"> -->
+ 
+        
+    <!--     <h6 class="w3-border-bottom w3-border-light-grey"><b>Frequently Asked Questions</b></h6>
+		<p class="w3-border-bottom w3-border-light-grey">ghghghghgghg</p><br> -->
+        <!-- <button onclick="myAccFunc('Demo7')" class="w3-padding-16 w3-theme w3-button w3-block w3-left-align">Join Us</button>
+         <div id="Demo7" class="auto-style9">
+
+        <div class="w3-border">
+            <div class="w3-bar w3-theme">
+                <button class="w3-bar-item w3-button testbtn w3-padding-16" onclick="openCity(event,'London')">LinkedIn</button>
+                <button class="w3-bar-item w3-button testbtn w3-padding-16" onclick="openCity(event,'Paris')">FB</button>
+                <button class="w3-bar-item w3-button testbtn w3-padding-16" onclick="openCity(event,'Tokyo')">Twitter</button>
+                <button class="w3-bar-item w3-button testbtn w3-padding-16" onclick="openCity(event,'Madrid')">Instagram</button>
+
+            </div>
+
+            <div id="London" class="w3-container city w3-animate-opacity" style="text-align: left !important">
+                <h2></h2>
+       <img src="l.PNG" style="width:10%;" class="w3-animate-zoom"><p></p>
+
+            </div>
+
+            <div id="Paris" class="w3-container city w3-animate-opacity" style="text-align: left !important">
+                <h2></h2>
+                       <img src="f.PNG" style="width:10%;" class="w3-animate-zoom"><p></p>
+            </div>
+
+            <div id="Tokyo" class="w3-container city w3-animate-opacity" style="text-align: left !important">
+                <h2></h2>
+                      <img src="t.PNG" style="width:10%;" class="w3-animate-zoom"><p></p>
+            </div>
+              <div id="Madrid" class="w3-container city w3-animate-opacity" style="text-align: left !important">
+                <h2></h2>
+                       <img src="i.PNG" style="width:10%;" class="w3-animate-zoom"><p></p>
+            </div>
+
+       </div>
+        </div> -->
+
+		
+<!-- </footer> -->
+<!-- Start of HubSpot Embed Code -->
+  <script type="text/javascript" id="hs-script-loader" async defer src="//js-na1.hs-scripts.com/40214158.js"></script>
+<!-- End of HubSpot Embed Code -->
+</body>
+</html>
