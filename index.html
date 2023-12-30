@@ -79,7 +79,7 @@
   display: none;
   position: absolute;
   background-color: #f9f9f9;
-  min-width: 150px;
+  min-width: 10px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
 }
@@ -88,7 +88,7 @@
 .dropdown-content a {
   float: none;
   color: black;
-  padding: 5px 10px;
+  padding: 3px 3px;
   text-decoration: none;
   display: block;
   text-align: center;
@@ -115,20 +115,19 @@
     <div class="w3-right w3-show-small">
       <a href="#About" class="w3-bar-item w3-button"><b>About</b></a>
 	  <div class="dropdown">
-    <div class="w3-bar-item w3-button"><b>Services</b>
+    <div class="w3-bar-item w3-button"><b>Services </b>
       <i class="fa fa-caret-down"></i>
     </div>
     <div class="dropdown-content">
-	
-	 <center><b></b></center>
-      <a href="#"><b>Marketing </b></a>
-      <a href="#"><b>Multimedia </b></a>
-      <a href="#"><b>Strategic </b></a>
-	  <a href="#"><b>Technical </b></a>
+	<div class="w3-bar-item w3-button"><b>Services   </b><i class="fa fa-caret-down"></i></div>
+	  <a href="#m1" onclick="myAccFunc('Demo4')"><b>Marketing</b></a>
+      <a href="#m2" onclick="myAccFunc('Demo5')"><b>Multimedia</b></a>
+      <a href="#m3" onclick="myAccFunc('Demo6')"><b>Strategic</b></a>
+	  <a href="#m4" onclick="myAccFunc('Demo12')"><b>Technical</b></a>
+	  <a href="#m0" onclick="myAccFunc('Demo3')"><b>Training</b></a>
     </div>
   </div>
-	
-      <a href="#Contact" class="w3-bar-item w3-button"><b>Contact</b></a>
+	<a href="#Contact" class="w3-bar-item w3-button"><b>Contact</b></a>
     </div>
   </div>
 </div>
@@ -258,30 +257,40 @@
         <div class="w3-container" id="Services">
                 <h6 class="w3-border-bottom w3-border-light-grey"><b>Why Digital Communications Matter</b></h6>
 			<!-- 	<p class="w3-border-bottom w3-border-light-grey">ghghghghgghg</p> -->
-        <button onclick="myAccFunc('Demo4')" class="w3-padding-16 w3-theme w3-button w3-block w3-left-align">Marketing Communications</button>
+			
+        <button onclick="myAccFunc('Demo4')" class="w3-padding-16 w3-theme w3-button w3-block w3-left-align" id="m1">Marketing Communication</button>
         <div id="Demo4" class="w3-hide w3-black">
             <div class="w3-container">
-                <p class="w3-left-align">More to follow.</p>
+                <p class="w3-left-align">What is Marketing Communication?</p>
+				<p class="w3-left-align">More to follow.</p>
             </div>
         </div>
-        <button onclick="myAccFunc('Demo5')" class="w3-padding-16 w3-theme w3-button w3-block w3-left-align">Multimedia Communications</button>
+        <button onclick="myAccFunc('Demo5')" class="w3-padding-16 w3-theme w3-button w3-block w3-left-align" id="m2">Multimedia Communication</button>
         <div id="Demo5" class="w3-hide w3-black">
         <div class="w3-container">
-                <p class="w3-left-align" class="w3-animate-zoom">More to follow.</p>
+                <p class="w3-left-align" class="w3-animate-zoom">What is Multimedia Communication?</p>
+				<p class="w3-left-align">More to follow.</p>
             </div>
         </div>
-        <button onclick="myAccFunc('Demo6')" class="w3-padding-16 w3-theme w3-button w3-block w3-left-align">Strategic Communications</button>
+        <button onclick="myAccFunc('Demo6')" class="w3-padding-16 w3-theme w3-button w3-block w3-left-align" id="m3">Strategic Communication</button>
         <div id="Demo6" class="w3-hide w3-black">
             <div class="w3-container">
-                                <p class="w3-center"><img src="Capture5.PNG"  style="width:100%" class="w3-animate-zoom"></p>
-
+                                <p class="w3-left-align">What is Strategic Communication?</p>
+<p class="w3-left-align">More to follow.</p>
             </div>
         </div>
-        <button onclick="myAccFunc('Demo12')" class="w3-padding-16 w3-theme w3-button w3-block w3-left-align">Technical Communications</button>
+        <button onclick="myAccFunc('Demo12')" class="w3-padding-16 w3-theme w3-button w3-block w3-left-align" id="m4">Technical Communication</button>
         <div id="Demo12" class="w3-hide w3-black">
-		<div class="auto-style10">
-                <p><a href="https://us8.list-manage.com/contact-form?u=3fa1d58d2ad3ba44981d0a215&form_id=10998f5fab8fb6773c887e98235b475d" target="blank">Request access.</a></p>
-
+		 <div class="w3-container">
+                                <p class="w3-left-align">What is Technical Communication?</p>
+<p class="w3-left-align">More to follow.</p>
+            </div>
+        </div>
+		<button onclick="myAccFunc('Demo3')" class="w3-padding-16 w3-theme w3-button w3-block w3-left-align" id="m0">Training Communication</button>
+        <div id="Demo3" class="w3-hide w3-black">
+            <div class="w3-container">
+                <p class="w3-left-align">What is Training Communication?</p>
+				<p class="w3-left-align">More to follow.</p>
             </div>
         </div>
 </div>
@@ -289,26 +298,26 @@
         <div class="w3-container" id="FAQ">
         <h6 class="w3-border-bottom w3-border-light-grey"><b>Frequently Asked Questions</b></h6>
 		<!-- <p class="w3-border-bottom w3-border-light-grey">ghghghghgghg</p> -->
-		        <button onclick="myAccFunc('Demo14')" class="w3-padding-16 w3-theme w3-button w3-block w3-left-align">Question 1</button>
+		        <button onclick="myAccFunc('Demo14')" class="w3-padding-16 w3-theme w3-button w3-block w3-left-align">What is Content Strategy?</button>
         <div id="Demo14" class="w3-hide w3-black">
             <div class="w3-container">
                 <p class="w3-left-align">More to follow.</p>
             </div>
         </div>
-        <button onclick="myAccFunc('Demo15')" class="w3-padding-16 w3-theme w3-button w3-block w3-left-align">Question 2</button>
+        <button onclick="myAccFunc('Demo15')" class="w3-padding-16 w3-theme w3-button w3-block w3-left-align">What is Content Design?</button>
         <div id="Demo15" class="w3-hide w3-black">
         <div class="w3-container">
                 <p class="w3-left-align" class="w3-animate-zoom">More to follow.</p>
             </div>
         </div>
-        <button onclick="myAccFunc('Demo16')" class="w3-padding-16 w3-theme w3-button w3-block w3-left-align">Question 3</button>
+        <button onclick="myAccFunc('Demo16')" class="w3-padding-16 w3-theme w3-button w3-block w3-left-align">What is Content Development?</button>
         <div id="Demo16" class="w3-hide w3-black">
             <div class="w3-container">
                                 <p class="w3-center"><img src="Capture5.PNG"  style="width:100%" class="w3-animate-zoom"></p>
 
             </div>
         </div>
-        <button onclick="myAccFunc('Demo120')" class="w3-padding-16 w3-theme w3-button w3-block w3-left-align">Question 4</button>
+        <button onclick="myAccFunc('Demo120')" class="w3-padding-16 w3-theme w3-button w3-block w3-left-align">What is Content Marketing?</button>
         <div id="Demo120" class="w3-hide w3-black">
 		<div class="auto-style10">
                 <p><a href="https://us8.list-manage.com/contact-form?u=3fa1d58d2ad3ba44981d0a215&form_id=10998f5fab8fb6773c887e98235b475d" target="blank">Request access.</a></p>
