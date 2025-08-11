@@ -152,7 +152,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="#m3" onclick="myAccFunc('Demo6')"><b>Strategic</b></a>
 	  <a href="#m4" onclick="myAccFunc('Demo12')"><b>Technical</b></a>
 	  <a href="#m0" onclick="myAccFunc('Demo3')"><b>Training</b></a>
-	  <a href="#FAQ"><b>Other</b></a>
+	  <a href="#FAQ"><b>FAQ</b></a>
     </div>
   </div>
 	<a href="#Contact" class="w3-bar-item w3-button"><b>Contact</b></a>
@@ -382,7 +382,7 @@ Effective training communication is crucial for successful learning outcomes, wh
 </div>
 <br>
         <div class="w3-container" id="FAQ">
-        <h6 class="w3-border-bottom w3-border-light-grey"><b>Frequently Asked Questions: Other Digital Services</b></h6>
+        <h6 class="w3-border-bottom w3-border-light-grey"><b>Frequently Asked Questions: Key Services</b></h6>
 		<!-- <p class="w3-border-bottom w3-border-light-grey">ghghghghgghg</p> -->
 		        <button onclick="myAccFunc('Demo14')" class="w3-padding-16 w3-theme w3-button w3-block w3-left-align">What is Content Strategy?</button>
         <div id="Demo14" class="w3-hide w3-black">
@@ -571,7 +571,7 @@ Marketing automation helps businesses save time, reduce human error, and focus o
     <!-- Footer -->
    <center> <footer class="w3-container w3-theme-dark w3-padding-16">
         <h3><a name="K"></a>KARSAJ CONTENT</h3>
-		<img src="R.png" class="w3-image" style="width:50%">
+		<img src="R.png" class="w3-image" style="width:33%">
 		<h4></a>Your Communications Firm&#8482;</h4>
 		
 
