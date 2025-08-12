@@ -560,14 +560,14 @@ Marketing automation helps businesses save time, reduce human error, and focus o
     <div class="w3-container">
  <h6 class="w3-border-bottom w3-border-light-grey"><b>Request Our Portfolio and Testimonials</b></h6>
  <br>
- <p><center><button style="background-color: orange; color: black;" class="w3-bar-item w3-button"><a href="https://us8.list-manage.com/contact-form?u=3fa1d58d2ad3ba44981d0a215&form_id=10998f5fab8fb6773c887e98235b475d" target="blank"class="auto-style12">Click here to request our portfolio and references.</a></button></center></p>
+ <p><center><button style="background-color: light-green; color: white;" class="w3-bar-item w3-button"><a href="https://us8.list-manage.com/contact-form?u=3fa1d58d2ad3ba44981d0a215&form_id=10998f5fab8fb6773c887e98235b475d" target="blank"class="auto-style12">Click here to request our portfolio and references.</a></button></center></p>
  </div>
   <br>
   <br>
   <!-- Image of location/map -->
 <div class="w3-container">
-  <img src="map.jpg" class="w3-image" style="width:100%">
-</div>
+<!--   <img src="map.jpg" class="w3-image" style="width:100%">
+ --></div>
     <!-- Footer -->
    <center> <footer class="w3-container w3-theme-dark w3-padding-16">
         <h3><a name="K"></a>KARSAJ CONTENT</h3>
