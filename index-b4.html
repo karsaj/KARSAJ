@@ -63,7 +63,6 @@
     "@type": "OfferCatalog",
     "name": "Communications Services",
     "itemListElement": [
-      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Corporate Communications"}},
       {"@type":"Offer","itemOffered":{"@type":"Service","name":"Marketing Communications"}},
       {"@type":"Offer","itemOffered":{"@type":"Service","name":"Technical Writing"}},
       {"@type":"Offer","itemOffered":{"@type":"Service","name":"Instructional Design"}},
@@ -483,10 +482,9 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
 
     <div class="nav-dd" id="servicesDD">
       <button class="nav-dd-btn" aria-haspopup="true" aria-expanded="false" onclick="toggleDD(event)">
-        Communications Services <span class="caret" aria-hidden="true">▼</span>
+        Services <span class="caret" aria-hidden="true">▼</span>
       </button>
       <div class="nav-dd-menu" role="menu">
-        <a href="#Services" role="menuitem" onclick="openAcc('Demo7');closeDD();">Corporate</a>
         <a href="#Services" role="menuitem" onclick="openAcc('Demo4');closeDD();">Marketing</a>
         <a href="#Services" role="menuitem" onclick="openAcc('Demo5');closeDD();">Multimedia</a>
         <a href="#Services" role="menuitem" onclick="openAcc('Demo6');closeDD();">Strategic</a>
@@ -497,6 +495,9 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
 
     <a href="#FAQ" role="menuitem">Core Services</a>
     <a href="#Contact" role="menuitem">Contact</a>
+    <a href="https://meetings.hubspot.com/kar-saj?uuid=d8a79d59-f8b1-4df8-bcb9-204a766dcfb7"
+       target="_blank" rel="noopener noreferrer"
+       class="btn nav-cta" role="menuitem">Schedule a Call</a>
   </div>
 
   <button class="nav-toggle" aria-label="Open navigation menu" aria-expanded="false"
@@ -508,8 +509,7 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
 <!-- Mobile drawer -->
 <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation" aria-modal="true">
   <a href="#About" onclick="closeMobile()">About</a>
-  <a href="#Services" onclick="closeMobile()" style="color:var(--orange);">Communications Services</a>
-  <a href="#Services" class="sub" onclick="openAcc('Demo7');closeMobile();">↳ Corporate</a>
+  <a href="#Services" onclick="closeMobile()" style="color:var(--orange);">Services</a>
   <a href="#Services" class="sub" onclick="openAcc('Demo4');closeMobile();">↳ Marketing</a>
   <a href="#Services" class="sub" onclick="openAcc('Demo5');closeMobile();">↳ Multimedia</a>
   <a href="#Services" class="sub" onclick="openAcc('Demo6');closeMobile();">↳ Strategic</a>
@@ -538,8 +538,6 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
       <div class="hero-btns">
         <a href="#Services" class="btn btn-outline">Our Services</a>
         <a href="#Contact" class="btn btn-outline">Get in Touch</a>
-        <a href="https://meetings.hubspot.com/kar-saj?uuid=d8a79d59-f8b1-4df8-bcb9-204a766dcfb7"
-           target="_blank" rel="noopener noreferrer" class="btn btn-outline">Schedule Meeting</a>
       </div>
     </div>
   </section>
@@ -578,23 +576,6 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
     <div class="container">
       <p class="section-title">What We Deliver</p>
       <h2 id="services-h" style="margin-bottom:1.75rem;">Communications Content</h2>
-
-      <div class="acc-item">
-        <button class="acc-btn" onclick="toggleAcc(this,'Demo7')" aria-expanded="false" aria-controls="Demo7" id="m1b">
-          Corporate Communications <span class="caret" aria-hidden="true">▼</span>
-        </button>
-        <div class="acc-body" id="Demo7" role="region">
-          <p>Corporate communication manages and coordinates messaging between an organization and its internal and external stakeholders — employees, executives, investors, media, and the public — to build a consistent brand voice, protect reputation, and support business objectives.</p>
-          <ol>
-            <li><strong>Internal Communications:</strong> Employee newsletters, intranet content, leadership memos, and change management messaging that keep staff informed and aligned.</li>
-            <li><strong>Executive Communications:</strong> Speeches, talking points, board materials, and thought-leadership content that reflect leadership's voice and vision.</li>
-            <li><strong>Media and Public Relations:</strong> Press releases, media kits, statements, and spokesperson support to manage external narrative.</li>
-            <li><strong>Crisis and Issues Communications:</strong> Prepared statements, response protocols, and messaging frameworks to protect reputation during sensitive situations.</li>
-            <li><strong>Brand Governance:</strong> Style guides, tone-of-voice standards, and messaging frameworks that ensure consistency across every channel.</li>
-          </ol>
-          <div class="acc-cta"><a href="mailto:im@karsaj.com?subject=Help Us With Corporate Communications Please" class="btn btn-primary">Contact us about Corporate Communications</a></div>
-        </div>
-      </div>
 
       <div class="acc-item">
         <button class="acc-btn" onclick="toggleAcc(this,'Demo4')" aria-expanded="false" aria-controls="Demo4" id="m1">
@@ -778,29 +759,11 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
         <a href="https://www.articulate.com" target="_blank" rel="noopener noreferrer" aria-label="Articulate">
           <img src="ar.PNG" alt="Articulate logo" width="120" height="56" loading="lazy">Articulate
         </a>
-        <a href="https://www.hubspot.com" target="_blank" rel="noopener noreferrer" aria-label="HubSpot"><img src="hub.png" alt="Articulate logo" width="120" height="56" loading="lazy">
-          HubSpot
-        </a>
         <a href="https://www.klaviyo.com" target="_blank" rel="noopener noreferrer" aria-label="Klaviyo">
           <img src="K.png" alt="Klaviyo logo" width="120" height="56" loading="lazy">Klaviyo
         </a>
-        <a href="https://www.madcapsoftware.com" target="_blank" rel="noopener noreferrer" aria-label="MadCap Flare"><img src="mcf.png" alt="Articulate logo" width="120" height="56" loading="lazy">
-          MadCap Flare
-        </a>
-        <a href="https://www.mailchimp.com" target="_blank" rel="noopener noreferrer" aria-label="Mailchimp"><img src="chimp.png" alt="Articulate logo" width="120" height="56" loading="lazy">
-          Mailchimp
-        </a>
         <a href="https://www.microsoft.com" target="_blank" rel="noopener noreferrer" aria-label="Microsoft">
           <img src="off.jpg" alt="Microsoft logo" width="120" height="56" loading="lazy">Microsoft
-        </a>
-        <a href="https://www.salesforce.com" target="_blank" rel="noopener noreferrer" aria-label="Salesforce"><img src="sf.png" alt="Articulate logo" width="120" height="56" loading="lazy">
-          Salesforce
-        </a>
-        <a href="https://www.talentlms.com" target="_blank" rel="noopener noreferrer" aria-label="TalentLMS"><img src="tl.png" alt="Articulate logo" width="120" height="56" loading="lazy">
-          TalentLMS
-        </a>
-        <a href="https://www.zendesk.com" target="_blank" rel="noopener noreferrer" aria-label="Zendesk"><img src="zn.png" alt="Articulate logo" width="120" height="56" loading="lazy">
-          Zendesk
         </a>
       </div>
     </div>
