@@ -346,7 +346,7 @@ li { margin-bottom: .35rem; }
 .acc-body { display: none; padding: 1.25rem; background: var(--white); font-size: .92rem; }
 .acc-body.open { display: block; }
 .acc-body ol { padding-left: 1.1rem; }
-.acc-cta { margin-top: 1rem; }
+.acc-cta { margin-top: 1rem; text-align: center; }
 
 /* ── Tools ───────────────────────────────────────────── */
 .tools-grid {
@@ -488,12 +488,12 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
         Content Types <span class="caret" aria-hidden="true">▼</span>
       </button>
       <div class="nav-dd-menu" role="menu">
-        <a href="#Services" role="menuitem" onclick="openAcc('Demo7');closeDD();">Corporate Comms</a>
-        <a href="#Services" role="menuitem" onclick="openAcc('Demo4');closeDD();">Marketing Comms</a>
-        <a href="#Services" role="menuitem" onclick="openAcc('Demo5');closeDD();">Multimedia Comms</a>
-        <a href="#Services" role="menuitem" onclick="openAcc('Demo6');closeDD();">Strategic Comms</a>
-        <a href="#Services" role="menuitem" onclick="openAcc('Demo12');closeDD();">Technical Comms</a>
-        <a href="#Services" role="menuitem" onclick="openAcc('Demo3');closeDD();">Training Comms</a>
+        <a href="#Services" role="menuitem" onclick="openAcc(event,'Demo7');closeDD();">Corporate Communications</a>
+        <a href="#Services" role="menuitem" onclick="openAcc(event,'Demo4');closeDD();">Marketing Communications</a>
+        <a href="#Services" role="menuitem" onclick="openAcc(event,'Demo5');closeDD();">Multimedia Communications</a>
+        <a href="#Services" role="menuitem" onclick="openAcc(event,'Demo6');closeDD();">Strategic Communications</a>
+        <a href="#Services" role="menuitem" onclick="openAcc(event,'Demo12');closeDD();">Technical Communications</a>
+        <a href="#Services" role="menuitem" onclick="openAcc(event,'Demo3');closeDD();">Training Communications</a>
       </div>
     </div>
 
@@ -511,12 +511,12 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
 <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation" aria-modal="true">
   <a href="#About" onclick="closeMobile()">About</a>
   <a href="#Services" onclick="closeMobile()" style="color:var(--orange);">Communications Services</a>
-  <a href="#Services" class="sub" onclick="openAcc('Demo7');closeMobile();">↳ Corporate</a>
-  <a href="#Services" class="sub" onclick="openAcc('Demo4');closeMobile();">↳ Marketing</a>
-  <a href="#Services" class="sub" onclick="openAcc('Demo5');closeMobile();">↳ Multimedia</a>
-  <a href="#Services" class="sub" onclick="openAcc('Demo6');closeMobile();">↳ Strategic</a>
-  <a href="#Services" class="sub" onclick="openAcc('Demo12');closeMobile();">↳ Technical</a>
-  <a href="#Services" class="sub" onclick="openAcc('Demo3');closeMobile();">↳ Training</a>
+  <a href="#Services" class="sub" onclick="openAcc(event,'Demo7');closeMobile();">↳ Corporate</a>
+  <a href="#Services" class="sub" onclick="openAcc(event,'Demo4');closeMobile();">↳ Marketing</a>
+  <a href="#Services" class="sub" onclick="openAcc(event,'Demo5');closeMobile();">↳ Multimedia</a>
+  <a href="#Services" class="sub" onclick="openAcc(event,'Demo6');closeMobile();">↳ Strategic</a>
+  <a href="#Services" class="sub" onclick="openAcc(event,'Demo12');closeMobile();">↳ Technical</a>
+  <a href="#Services" class="sub" onclick="openAcc(event,'Demo3');closeMobile();">↳ Training</a>
   <a href="#FAQ" onclick="closeMobile()">Core Services FAQ</a>
   <a href="#Contact" onclick="closeMobile()">Contact</a>
   <a href="https://meetings.hubspot.com/kar-saj?uuid=d8a79d59-f8b1-4df8-bcb9-204a766dcfb7"
@@ -792,22 +792,22 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
         <a href="https://www.klaviyo.com" target="_blank" rel="noopener noreferrer" aria-label="Klaviyo">
           <img src="K.png" alt="Klaviyo logo" width="120" height="56" loading="lazy">Klaviyo
         </a>
-        <a href="https://www.madcapsoftware.com" target="_blank" rel="noopener noreferrer" aria-label="MadCap Flare"><img src="mcf.png" alt="Articulate logo" width="120" height="56" loading="lazy">
+        <a href="https://www.madcapsoftware.com" target="_blank" rel="noopener noreferrer" aria-label="MadCap Flare"><img src="mcf.png" alt="MadCap Flare logo" width="120" height="56" loading="lazy">
           MadCap Flare
         </a>
-        <a href="https://www.mailchimp.com" target="_blank" rel="noopener noreferrer" aria-label="Mailchimp"><img src="chimp.png" alt="Articulate logo" width="120" height="56" loading="lazy">
+        <a href="https://www.mailchimp.com" target="_blank" rel="noopener noreferrer" aria-label="Mailchimp"><img src="chimp.png" alt="Mailchimp logo" width="120" height="56" loading="lazy">
           Mailchimp
         </a>
         <a href="https://www.microsoft.com" target="_blank" rel="noopener noreferrer" aria-label="Microsoft">
           <img src="off.jpg" alt="Microsoft logo" width="120" height="56" loading="lazy">Microsoft
         </a>
-        <a href="https://www.salesforce.com" target="_blank" rel="noopener noreferrer" aria-label="Salesforce"><img src="sf.png" alt="Articulate logo" width="120" height="56" loading="lazy">
+        <a href="https://www.salesforce.com" target="_blank" rel="noopener noreferrer" aria-label="Salesforce"><img src="sf.png" alt="Salesforce logo" width="120" height="56" loading="lazy">
           Salesforce
         </a>
-        <a href="https://www.talentlms.com" target="_blank" rel="noopener noreferrer" aria-label="TalentLMS"><img src="tl.png" alt="Articulate logo" width="120" height="56" loading="lazy">
+        <a href="https://www.talentlms.com" target="_blank" rel="noopener noreferrer" aria-label="TalentLMS"><img src="tl.png" alt="TalentLMS logo" width="120" height="56" loading="lazy">
           TalentLMS
         </a>
-        <a href="https://www.zendesk.com" target="_blank" rel="noopener noreferrer" aria-label="Zendesk"><img src="zn.png" alt="Articulate logo" width="120" height="56" loading="lazy">
+        <a href="https://www.zendesk.com" target="_blank" rel="noopener noreferrer" aria-label="Zendesk"><img src="zn.png" alt="Zendesk logo" width="120" height="56" loading="lazy">
           Zendesk
         </a>
       </div>
@@ -908,11 +908,13 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
       body.classList.add('open');
       btn.classList.add('active');
       btn.setAttribute('aria-expanded', 'true');
+      btn.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }
 
   /* Open a specific accordion by ID (used from nav links) */
-  function openAcc(id) {
+  function openAcc(e, id) {
+    if (e && e.preventDefault) e.preventDefault();
     document.querySelectorAll('.acc-body').forEach(function(b) { b.classList.remove('open'); });
     document.querySelectorAll('.acc-btn').forEach(function(b) {
       b.classList.remove('active');
@@ -922,7 +924,11 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
     if (body) {
       body.classList.add('open');
       var btn = body.previousElementSibling;
-      if (btn) { btn.classList.add('active'); btn.setAttribute('aria-expanded', 'true'); }
+      if (btn) {
+        btn.classList.add('active');
+        btn.setAttribute('aria-expanded', 'true');
+        btn.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     }
   }
 </script>
