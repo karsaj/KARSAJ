@@ -196,7 +196,9 @@ li { margin-bottom: .35rem; }
   font-family: 'Montserrat', sans-serif;
   font-size: 1rem; font-weight: 800; letter-spacing: .04em;
   text-decoration: none; color: var(--black); margin-right: auto; white-space: nowrap;
+  display: inline-flex; align-items: center; gap: .5rem;
 }
+.nav-brand img { height: 28px; width: auto; display: block; }
 .nav-brand span { color: var(--orange); }
 .nav-links { display: flex; align-items: center; gap: .1rem; }
 .nav-links a,
@@ -384,7 +386,11 @@ li { margin-bottom: .35rem; }
 
 /* ── Footer ──────────────────────────────────────────── */
 footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2rem; text-align: center; }
-.footer-brand { font-family: 'Montserrat', sans-serif; font-size: 1.35rem; font-weight: 800; margin-bottom: .4rem; }
+.footer-brand {
+  font-family: 'Montserrat', sans-serif; font-size: 1.35rem; font-weight: 800; margin-bottom: .4rem;
+  display: inline-flex; align-items: center; justify-content: center; gap: .6rem;
+}
+.footer-brand img { height: 36px; width: auto; display: block; }
 .footer-brand span { color: var(--gold); }
 .footer-tagline { color: var(--gold); font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 1.5rem; }
 .footer-social { margin-bottom: 1.25rem; }
@@ -478,7 +484,7 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
 
 <!-- ── Navigation ─────────────────────────────────────── -->
 <nav class="nav" role="navigation" aria-label="Main navigation">
-  <a href="#home" class="nav-brand" aria-label="KARSAJ CONTENT – home">KARSAJ <span>CONTENT</span></a>
+  <a href="#home" class="nav-brand" aria-label="KARSAJ CONTENT – home"><img src="karsaj-mark.png" alt="" width="20" height="20">KARSAJ <span>CONTENT</span></a>
 
   <div class="nav-links" role="menubar">
     <a href="#About" role="menuitem">About</a>
@@ -845,7 +851,7 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
 
 <!-- Footer -->
 <footer role="contentinfo">
-  <div class="footer-brand">KARSAJ <span>CONTENT</span></div>
+  <div class="footer-brand"><img src="karsaj-mark.png" alt="KARSAJ CONTENT logo" width="22" height="22">KARSAJ <span>CONTENT</span></div>
   <div class="footer-tagline">Ensure Customer Success™</div>
   <div class="footer-social">
     <a href="https://linktr.ee/karsaj" target="_blank" rel="noopener noreferrer"
