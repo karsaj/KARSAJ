@@ -181,6 +181,11 @@ li { margin-bottom: .35rem; }
 .btn-outline:hover  { background: var(--green); color: var(--white); border-color: var(--green); }
 .btn-green    { background: var(--green-lt); color: var(--white); border-color: var(--green-lt); }
 .btn-green:hover    { background: var(--green); border-color: var(--green); }
+/* Schedule button: match the Klaviyo submit button's pill shape and size */
+.contact-grid .btn-green {
+  width: 100%; border-radius: 999px; min-height: 54px; padding: 1rem 1.6rem;
+}
+.contact-grid .btn-green:hover { background: var(--orange); border-color: var(--orange); }
 
 /* ── Navigation ──────────────────────────────────────── */
 .nav {
@@ -280,7 +285,7 @@ li { margin-bottom: .35rem; }
 .mobile-cta {
   display: flex; align-items: center; justify-content: center;
   margin-top: 1.25rem; padding: .9rem 1.5rem;
-  background: var(--orange); color: var(--white) !important;
+  background: var(--green-lt); color: var(--white) !important;
   border-radius: var(--r); font-family: 'Montserrat', sans-serif;
   font-size: .85rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase;
   text-decoration: none; min-height: 48px;
@@ -448,7 +453,7 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
   .portfolio-box      { padding: 1.25rem; }
   .contact-form-wrap  { padding: 1.25rem; }
   /* Schedule button in contact – full width */
-  .contact-grid .btn-primary { width: 100%; margin-bottom: 1.25rem; }
+  .contact-grid .btn-green { width: 100%; margin-bottom: 1.25rem; }
 
   /* Footer */
   footer {
@@ -472,10 +477,88 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
   *, *::before, *::after { transition: none !important; animation: none !important; }
   html { scroll-behavior: auto; }
 }
+/* ── Cookie consent banner ───────────────────────────── */
+.cookie-consent {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 10000;
+  background: var(--ink); color: var(--white);
+  box-shadow: 0 -4px 20px rgba(0,0,0,.25);
+  transform: translateY(100%);
+  transition: transform .35s ease;
+}
+.cookie-consent.show { transform: translateY(0); }
+.cookie-consent-inner {
+  max-width: 1200px; margin: 0 auto;
+  padding: 1.1rem 1.5rem;
+  display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.cookie-consent p {
+  margin: 0; font-size: .88rem; line-height: 1.5; color: var(--white);
+  flex: 1 1 320px;
+}
+.cookie-consent-actions {
+  display: flex; gap: .75rem; flex: 0 0 auto; flex-wrap: wrap;
+}
+.cookie-consent .btn-outline { color: var(--white); border-color: var(--white); }
+.cookie-consent .btn-outline:hover { background: var(--white); color: var(--ink); }
+@media (max-width: 560px) {
+  .cookie-consent-inner { padding: 1rem 1.1rem; }
+  .cookie-consent-actions { width: 100%; }
+  .cookie-consent-actions .btn { flex: 1 1 0; }
+}
+#langDD .nav-dd-menu { left: auto; right: 0; min-width: 150px; }
+.flag-icon {
+  width: 20px; height: 14px; display: inline-block; vertical-align: middle;
+  margin-right: .4rem; border-radius: 2px; box-shadow: 0 0 0 1px rgba(0,0,0,.1);
+  flex-shrink: 0;
+}
 </style>
 </head>
 
 <body>
+
+<!-- Flag icon sprite (SVG, not emoji — renders consistently on every OS/browser) -->
+<svg style="display:none" aria-hidden="true">
+  <symbol id="flag-ca" viewBox="0 0 20 14">
+    <rect width="20" height="14" fill="#FFFFFF"/>
+    <rect width="5" height="14" fill="#FF0000"/>
+    <rect x="15" width="5" height="14" fill="#FF0000"/>
+    <path fill="#FF0000" d="M10,3.3 L10.9,5.5 L13,4.9 L11.9,6.9 L14,7.6 L11.9,8.1 L12.6,10.2 L10.5,9.1 L10.5,11.3 L9.5,11.3 L9.5,9.1 L7.4,10.2 L8.1,8.1 L6,7.6 L8.1,6.9 L7,4.9 L9.1,5.5 Z"/>
+  </symbol>
+  <symbol id="flag-fr" viewBox="0 0 20 14">
+    <rect width="6.67" height="14" fill="#0055A4"/>
+    <rect x="6.67" width="6.67" height="14" fill="#FFFFFF"/>
+    <rect x="13.33" width="6.67" height="14" fill="#EF4135"/>
+  </symbol>
+  <symbol id="flag-de" viewBox="0 0 20 14">
+    <rect width="20" height="4.67" fill="#000000"/>
+    <rect y="4.67" width="20" height="4.67" fill="#DD0000"/>
+    <rect y="9.33" width="20" height="4.67" fill="#FFCE00"/>
+  </symbol>
+  <symbol id="flag-cn" viewBox="0 0 20 14">
+    <rect width="20" height="14" fill="#DE2910"/>
+    <polygon fill="#FFDE00" points="4.0,1.3 4.53,2.77 6.09,2.82 4.86,3.78 5.29,5.28 4.0,4.4 2.71,5.28 3.14,3.78 1.91,2.82 3.47,2.77"/>
+    <circle cx="7.0" cy="1.5" r="0.35" fill="#FFDE00"/>
+    <circle cx="8.0" cy="3.0" r="0.35" fill="#FFDE00"/>
+    <circle cx="7.6" cy="5.0" r="0.35" fill="#FFDE00"/>
+    <circle cx="6.2" cy="6.2" r="0.35" fill="#FFDE00"/>
+  </symbol>
+  <symbol id="flag-jp" viewBox="0 0 20 14">
+    <rect width="20" height="14" fill="#FFFFFF"/>
+    <circle cx="10" cy="7" r="4" fill="#BC002D"/>
+  </symbol>
+</svg>
+
+<!-- Cookie consent banner -->
+<div class="cookie-consent" id="cookieConsent" role="dialog" aria-live="polite" aria-label="Cookie consent">
+  <div class="cookie-consent-inner">
+    <p>Wir verwenden Cookies, um Ihre Erfahrung auf unserer Website zu verbessern und den Datenverkehr zu analysieren. Durch Klicken auf „Akzeptieren" stimmen Sie unserer Verwendung von Cookies zu. Sie können nicht notwendige Cookies jederzeit ablehnen.</p>
+    <div class="cookie-consent-actions">
+      <button type="button" class="btn btn-outline" id="cookieDecline">Ablehnen</button>
+      <button type="button" class="btn btn-primary" id="cookieAccept">Akzeptieren</button>
+    </div>
+  </div>
+</div>
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-57L8MGFK" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
@@ -487,7 +570,7 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
   <a href="#home" class="nav-brand" aria-label="KARSAJ CONTENT – Startseite"><img src="karsaj-mark.png" alt="" width="20" height="20">KARSAJ <span>CONTENT</span></a>
 
   <div class="nav-links" role="menubar">
-    <a href="#About" role="menuitem">Über uns</a>
+    <a href="#About" role="menuitem" data-scroll-to="About">Über uns</a>
 
     <div class="nav-dd" id="servicesDD">
       <button class="nav-dd-btn" aria-haspopup="true" aria-expanded="false" onclick="toggleDD(event)">
@@ -503,8 +586,33 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
       </div>
     </div>
 
-    <a href="#FAQ" role="menuitem">Kernleistungen</a>
-    <a href="#Contact" role="menuitem">Kontakt</a>
+    <div class="nav-dd" id="coreServicesDD">
+      <button class="nav-dd-btn" aria-haspopup="true" aria-expanded="false" onclick="toggleCoreDD(event)">
+        Kernleistungen <span class="caret" aria-hidden="true">▼</span>
+      </button>
+      <div class="nav-dd-menu" role="menu">
+        <a href="#FAQ" role="menuitem" onclick="openAcc(event,'Demo14');closeCoreDD();">Content-Strategie</a>
+        <a href="#FAQ" role="menuitem" onclick="openAcc(event,'Demo15');closeCoreDD();">Content-Design</a>
+        <a href="#FAQ" role="menuitem" onclick="openAcc(event,'Demo16');closeCoreDD();">Content-Entwicklung</a>
+        <a href="#FAQ" role="menuitem" onclick="openAcc(event,'Demo120');closeCoreDD();">Content-Marketing</a>
+        <a href="#FAQ" role="menuitem" onclick="openAcc(event,'Demo148');closeCoreDD();">Marketing-Automatisierung</a>
+      </div>
+    </div>
+
+    <a href="#Contact" role="menuitem" data-scroll-to="Contact">Kontakt</a>
+
+    <div class="nav-dd" id="langDD">
+      <button class="nav-dd-btn" aria-haspopup="true" aria-expanded="false" onclick="toggleLangDD(event)" aria-label="Sprache auswählen">
+        <svg class="flag-icon" aria-hidden="true"><use href="#flag-de"></use></svg>DE <span class="caret" aria-hidden="true">▼</span>
+      </button>
+      <div class="nav-dd-menu" role="menu">
+        <a href="index.html" role="menuitem" hreflang="en" lang="en"><svg class="flag-icon" aria-hidden="true"><use href="#flag-ca"></use></svg>English</a>
+        <a href="index-fr.html" role="menuitem" hreflang="fr-CA" lang="fr"><svg class="flag-icon" aria-hidden="true"><use href="#flag-fr"></use></svg>Français</a>
+        <a href="index-de.html" role="menuitem" hreflang="de" lang="de"><svg class="flag-icon" aria-hidden="true"><use href="#flag-de"></use></svg>Deutsch</a>
+        <a href="index-zh.html" role="menuitem" hreflang="zh-CN" lang="zh-CN"><svg class="flag-icon" aria-hidden="true"><use href="#flag-cn"></use></svg>中文</a>
+        <a href="index-ja.html" role="menuitem" hreflang="ja" lang="ja"><svg class="flag-icon" aria-hidden="true"><use href="#flag-jp"></use></svg>日本語</a>
+      </div>
+    </div>
   </div>
 
   <button class="nav-toggle" aria-label="Navigationsmenü öffnen" aria-expanded="false"
@@ -515,16 +623,29 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
 
 <!-- Mobile drawer -->
 <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile Navigation" aria-modal="true">
-  <a href="#About" onclick="closeMobile()">Über uns</a>
-  <a href="#Services" onclick="closeMobile()" style="color:var(--orange);">Kommunikationsdienstleistungen</a>
+  <a href="#About" data-scroll-to="About" onclick="closeMobile()">Über uns</a>
+  <a href="#Services" data-scroll-to="Services" onclick="closeMobile()" style="color:var(--orange);">Kommunikationsdienstleistungen</a>
   <a href="#Services" class="sub" onclick="openAcc(event,'Demo7');closeMobile();">↳ Unternehmen</a>
   <a href="#Services" class="sub" onclick="openAcc(event,'Demo4');closeMobile();">↳ Marketing</a>
   <a href="#Services" class="sub" onclick="openAcc(event,'Demo5');closeMobile();">↳ Multimedia</a>
   <a href="#Services" class="sub" onclick="openAcc(event,'Demo6');closeMobile();">↳ Strategisch</a>
   <a href="#Services" class="sub" onclick="openAcc(event,'Demo12');closeMobile();">↳ Technisch</a>
   <a href="#Services" class="sub" onclick="openAcc(event,'Demo3');closeMobile();">↳ Schulung</a>
-  <a href="#FAQ" onclick="closeMobile()">FAQ zu Kernleistungen</a>
-  <a href="#Contact" onclick="closeMobile()">Kontakt</a>
+  <a href="#FAQ" data-scroll-to="FAQ" onclick="closeMobile()" style="color:var(--orange);">Kernleistungen</a>
+  <a href="#FAQ" class="sub" onclick="openAcc(event,'Demo14');closeMobile();">↳ Content-Strategie</a>
+  <a href="#FAQ" class="sub" onclick="openAcc(event,'Demo15');closeMobile();">↳ Content-Design</a>
+  <a href="#FAQ" class="sub" onclick="openAcc(event,'Demo16');closeMobile();">↳ Content-Entwicklung</a>
+  <a href="#FAQ" class="sub" onclick="openAcc(event,'Demo120');closeMobile();">↳ Content-Marketing</a>
+  <a href="#FAQ" class="sub" onclick="openAcc(event,'Demo148');closeMobile();">↳ Marketing-Automatisierung</a>
+  <a href="#Contact" data-scroll-to="Contact" onclick="closeMobile()">Kontakt</a>
+
+  <div class="mobile-lang" style="display:flex; flex-wrap:wrap; gap:.9rem; padding:.75rem 0; align-items:center;">
+    <a href="index.html" hreflang="en" lang="en" onclick="closeMobile()" style="display:flex;align-items:center;"><svg class="flag-icon" aria-hidden="true"><use href="#flag-ca"></use></svg>EN</a>
+    <a href="index-fr.html" hreflang="fr-CA" lang="fr" onclick="closeMobile()" style="display:flex;align-items:center;"><svg class="flag-icon" aria-hidden="true"><use href="#flag-fr"></use></svg>FR</a>
+    <a href="index-de.html" hreflang="de" lang="de" onclick="closeMobile()" style="display:flex;align-items:center;"><svg class="flag-icon" aria-hidden="true"><use href="#flag-de"></use></svg>DE</a>
+    <a href="index-zh.html" hreflang="zh-CN" lang="zh-CN" onclick="closeMobile()" style="display:flex;align-items:center;"><svg class="flag-icon" aria-hidden="true"><use href="#flag-cn"></use></svg>ZH</a>
+    <a href="index-ja.html" hreflang="ja" lang="ja" onclick="closeMobile()" style="display:flex;align-items:center;"><svg class="flag-icon" aria-hidden="true"><use href="#flag-jp"></use></svg>JA</a>
+  </div>
   <a href="https://meetings.hubspot.com/kar-saj?uuid=d8a79d59-f8b1-4df8-bcb9-204a766dcfb7"
      target="_blank" rel="noopener noreferrer"
      class="mobile-cta" onclick="closeMobile()">📅 Kostenlose Beratung vereinbaren</a>
@@ -544,8 +665,8 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
         <li>Strategie</li><li>Design</li><li>Entwicklung</li><li>Marketing</li><li>Automatisierung</li>
       </ul>
       <div class="hero-btns">
-        <a href="#Services" class="btn btn-outline">Unsere Leistungen</a>
-        <a href="#Contact" class="btn btn-outline">Kontakt aufnehmen</a>
+        <a href="#Services" class="btn btn-outline" data-scroll-to="Services">Unsere Leistungen</a>
+        <a href="#Contact" class="btn btn-outline" data-scroll-to="Contact">Kontakt aufnehmen</a>
         <a href="https://meetings.hubspot.com/kar-saj?uuid=d8a79d59-f8b1-4df8-bcb9-204a766dcfb7"
            target="_blank" rel="noopener noreferrer" class="btn btn-outline">Termin vereinbaren</a>
       </div>
@@ -825,23 +946,17 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
     <div class="container">
       <p class="section-title">Kontakt aufnehmen</p>
       <div class="contact-grid">
+        <div class="contact-form-wrap">
+          <h3 style="margin-bottom:1rem;">Senden Sie uns eine Nachricht</h3>
+          <div class="klaviyo-form-RpeDF3"></div>
+        </div>
         <div>
           <h2 id="contact-h">Lassen Sie uns zusammenarbeiten.</h2>
           <p style="color:var(--muted);margin-bottom:1.25rem;">Ob Sie eine vollständige Content-Strategie oder ein einzelnes Deliverable benötigen — wir helfen Ihnen gerne, klar, zielgerichtet und wirkungsvoll zu kommunizieren.</p>
           <a href="tel:+14377000966" class="contact-phone" aria-label="KARSAJ CONTENT anrufen">📞 1 (437) 700-0966</a>
           <a href="https://meetings.hubspot.com/kar-saj?uuid=d8a79d59-f8b1-4df8-bcb9-204a766dcfb7"
              target="_blank" rel="noopener noreferrer"
-             class="btn btn-primary" style="margin-top:.5rem; margin-bottom:1.5rem; display:flex;">📅 Kostenlose Beratung vereinbaren</a>
-          <div class="portfolio-box">
-            <h3>Unsere Arbeiten ansehen</h3>
-            <p>Fordern Sie unser Portfolio und Kundenreferenzen an, um Beispiele unserer Kommunikationsarbeit zu sehen.</p>
-            <a href="https://us8.list-manage.com/contact-form?u=3fa1d58d2ad3ba44981d0a215&form_id=10998f5fab8fb6773c887e98235b475d"
-               target="_blank" rel="noopener noreferrer" class="btn btn-green">Portfolio &amp; Referenzen anfordern</a>
-          </div>
-        </div>
-        <div class="contact-form-wrap">
-          <h3 style="margin-bottom:1rem;">Senden Sie uns eine Nachricht</h3>
-          <div class="klaviyo-form-RpeDF3"></div>
+             class="btn btn-green" style="margin-top:.5rem; margin-bottom:1.5rem; display:flex;">📅 Kostenlose Beratung vereinbaren</a>
         </div>
       </div>
     </div>
@@ -866,6 +981,33 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
 
 <!-- ── Scripts ────────────────────────────────────────── -->
 <script>
+  /* Cookie consent */
+  (function () {
+    var STORAGE_KEY = 'karsajCookieConsent';
+    var banner = document.getElementById('cookieConsent');
+    if (!banner) return;
+
+    var stored;
+    try { stored = localStorage.getItem(STORAGE_KEY); } catch (e) { stored = null; }
+
+    if (!stored) {
+      // Slight delay so the banner slides in after the page settles, not on first paint.
+      setTimeout(function () { banner.classList.add('show'); }, 600);
+    }
+
+    function setConsent(value) {
+      try { localStorage.setItem(STORAGE_KEY, value); } catch (e) {}
+      banner.classList.remove('show');
+    }
+
+    document.getElementById('cookieAccept').addEventListener('click', function () {
+      setConsent('accepted');
+    });
+    document.getElementById('cookieDecline').addEventListener('click', function () {
+      setConsent('declined');
+    });
+  })();
+
   /* Dropdown */
   function toggleDD(e) {
     e.stopPropagation();
@@ -878,11 +1020,42 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
     dd.classList.remove('open');
     dd.querySelector('button').setAttribute('aria-expanded', 'false');
   }
+
+  /* Core Services dropdown */
+  function toggleCoreDD(e) {
+    e.stopPropagation();
+    var dd = document.getElementById('coreServicesDD');
+    var open = dd.classList.toggle('open');
+    dd.querySelector('button').setAttribute('aria-expanded', open);
+  }
+  function closeCoreDD() {
+    var dd = document.getElementById('coreServicesDD');
+    dd.classList.remove('open');
+    dd.querySelector('button').setAttribute('aria-expanded', 'false');
+  }
+
+  /* Language dropdown */
+  function toggleLangDD(e) {
+    e.stopPropagation();
+    var dd = document.getElementById('langDD');
+    var open = dd.classList.toggle('open');
+    dd.querySelector('button').setAttribute('aria-expanded', open);
+  }
+  function closeLangDD() {
+    var dd = document.getElementById('langDD');
+    dd.classList.remove('open');
+    dd.querySelector('button').setAttribute('aria-expanded', 'false');
+  }
+
   document.addEventListener('click', function(e) {
     var dd = document.getElementById('servicesDD');
     if (dd && !dd.contains(e.target)) closeDD();
+    var coreDd = document.getElementById('coreServicesDD');
+    if (coreDd && !coreDd.contains(e.target)) closeCoreDD();
+    var langDd = document.getElementById('langDD');
+    if (langDd && !langDd.contains(e.target)) closeLangDD();
   });
-  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeDD(); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { closeDD(); closeCoreDD(); closeLangDD(); } });
 
   /* Mobile menu */
   function toggleMobile(btn) {
@@ -937,6 +1110,33 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
       }
     }
   }
+
+  /* Scroll a whole section (About, Services, FAQ, Contact) flush to the top.
+     Uses a single delegated listener with a real event object (via addEventListener)
+     rather than inline onclick="...(event,...)". A corrective second pass runs
+     shortly after the first scroll to fix cases where a mobile browser's
+     address-bar/toolbar collapse changes the viewport mid-animation and cuts
+     the scroll short. */
+  document.addEventListener('click', function (e) {
+    var link = e.target.closest('[data-scroll-to]');
+    if (!link) return;
+    e.preventDefault();
+    var el = document.getElementById(link.getAttribute('data-scroll-to'));
+    if (!el) return;
+
+    function targetY() {
+      var navH = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 60;
+      return el.getBoundingClientRect().top + window.pageYOffset - navH;
+    }
+
+    window.scrollTo({ top: targetY(), behavior: 'smooth' });
+    // Correction pass: re-checks the position once the viewport has settled
+    // (e.g. after a mobile toolbar collapses) and nudges to the exact spot.
+    setTimeout(function () {
+      var diff = Math.abs(window.pageYOffset - targetY());
+      if (diff > 4) window.scrollTo({ top: targetY(), behavior: 'smooth' });
+    }, 500);
+  });
 </script>
 
 <!-- HubSpot -->

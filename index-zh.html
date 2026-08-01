@@ -22,7 +22,7 @@
 <meta name="msapplication-TileColor" content="#FECB00">
 <!-- Geo signals for local SEO -->
 <meta name="geo.region" content="CA-ON">
-<meta name="geo.placename" content="多伦多, 安大略省">
+<meta name="geo.placename" content="Toronto, Ontario">
 <!-- Preload hero image for fast LCP -->
 <link rel="preload" as="image" href="dc2.gif">
 
@@ -181,6 +181,11 @@ li { margin-bottom: .35rem; }
 .btn-outline:hover  { background: var(--green); color: var(--white); border-color: var(--green); }
 .btn-green    { background: var(--green-lt); color: var(--white); border-color: var(--green-lt); }
 .btn-green:hover    { background: var(--green); border-color: var(--green); }
+/* Schedule button: match the Klaviyo submit button's pill shape and size */
+.contact-grid .btn-green {
+  width: 100%; border-radius: 999px; min-height: 54px; padding: 1rem 1.6rem;
+}
+.contact-grid .btn-green:hover { background: var(--orange); border-color: var(--orange); }
 
 /* ── Navigation ──────────────────────────────────────── */
 .nav {
@@ -280,7 +285,7 @@ li { margin-bottom: .35rem; }
 .mobile-cta {
   display: flex; align-items: center; justify-content: center;
   margin-top: 1.25rem; padding: .9rem 1.5rem;
-  background: var(--orange); color: var(--white) !important;
+  background: var(--green-lt); color: var(--white) !important;
   border-radius: var(--r); font-family: 'Montserrat', sans-serif;
   font-size: .85rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase;
   text-decoration: none; min-height: 48px;
@@ -448,7 +453,7 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
   .portfolio-box      { padding: 1.25rem; }
   .contact-form-wrap  { padding: 1.25rem; }
   /* Schedule button in contact – full width */
-  .contact-grid .btn-primary { width: 100%; margin-bottom: 1.25rem; }
+  .contact-grid .btn-green { width: 100%; margin-bottom: 1.25rem; }
 
   /* Footer */
   footer {
@@ -472,10 +477,88 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
   *, *::before, *::after { transition: none !important; animation: none !important; }
   html { scroll-behavior: auto; }
 }
+/* ── Cookie consent banner ───────────────────────────── */
+.cookie-consent {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 10000;
+  background: var(--ink); color: var(--white);
+  box-shadow: 0 -4px 20px rgba(0,0,0,.25);
+  transform: translateY(100%);
+  transition: transform .35s ease;
+}
+.cookie-consent.show { transform: translateY(0); }
+.cookie-consent-inner {
+  max-width: 1200px; margin: 0 auto;
+  padding: 1.1rem 1.5rem;
+  display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.cookie-consent p {
+  margin: 0; font-size: .88rem; line-height: 1.5; color: var(--white);
+  flex: 1 1 320px;
+}
+.cookie-consent-actions {
+  display: flex; gap: .75rem; flex: 0 0 auto; flex-wrap: wrap;
+}
+.cookie-consent .btn-outline { color: var(--white); border-color: var(--white); }
+.cookie-consent .btn-outline:hover { background: var(--white); color: var(--ink); }
+@media (max-width: 560px) {
+  .cookie-consent-inner { padding: 1rem 1.1rem; }
+  .cookie-consent-actions { width: 100%; }
+  .cookie-consent-actions .btn { flex: 1 1 0; }
+}
+#langDD .nav-dd-menu { left: auto; right: 0; min-width: 150px; }
+.flag-icon {
+  width: 20px; height: 14px; display: inline-block; vertical-align: middle;
+  margin-right: .4rem; border-radius: 2px; box-shadow: 0 0 0 1px rgba(0,0,0,.1);
+  flex-shrink: 0;
+}
 </style>
 </head>
 
 <body>
+
+<!-- Flag icon sprite (SVG, not emoji — renders consistently on every OS/browser) -->
+<svg style="display:none" aria-hidden="true">
+  <symbol id="flag-ca" viewBox="0 0 20 14">
+    <rect width="20" height="14" fill="#FFFFFF"/>
+    <rect width="5" height="14" fill="#FF0000"/>
+    <rect x="15" width="5" height="14" fill="#FF0000"/>
+    <path fill="#FF0000" d="M10,3.3 L10.9,5.5 L13,4.9 L11.9,6.9 L14,7.6 L11.9,8.1 L12.6,10.2 L10.5,9.1 L10.5,11.3 L9.5,11.3 L9.5,9.1 L7.4,10.2 L8.1,8.1 L6,7.6 L8.1,6.9 L7,4.9 L9.1,5.5 Z"/>
+  </symbol>
+  <symbol id="flag-fr" viewBox="0 0 20 14">
+    <rect width="6.67" height="14" fill="#0055A4"/>
+    <rect x="6.67" width="6.67" height="14" fill="#FFFFFF"/>
+    <rect x="13.33" width="6.67" height="14" fill="#EF4135"/>
+  </symbol>
+  <symbol id="flag-de" viewBox="0 0 20 14">
+    <rect width="20" height="4.67" fill="#000000"/>
+    <rect y="4.67" width="20" height="4.67" fill="#DD0000"/>
+    <rect y="9.33" width="20" height="4.67" fill="#FFCE00"/>
+  </symbol>
+  <symbol id="flag-cn" viewBox="0 0 20 14">
+    <rect width="20" height="14" fill="#DE2910"/>
+    <polygon fill="#FFDE00" points="4.0,1.3 4.53,2.77 6.09,2.82 4.86,3.78 5.29,5.28 4.0,4.4 2.71,5.28 3.14,3.78 1.91,2.82 3.47,2.77"/>
+    <circle cx="7.0" cy="1.5" r="0.35" fill="#FFDE00"/>
+    <circle cx="8.0" cy="3.0" r="0.35" fill="#FFDE00"/>
+    <circle cx="7.6" cy="5.0" r="0.35" fill="#FFDE00"/>
+    <circle cx="6.2" cy="6.2" r="0.35" fill="#FFDE00"/>
+  </symbol>
+  <symbol id="flag-jp" viewBox="0 0 20 14">
+    <rect width="20" height="14" fill="#FFFFFF"/>
+    <circle cx="10" cy="7" r="4" fill="#BC002D"/>
+  </symbol>
+</svg>
+
+<!-- Cookie consent banner -->
+<div class="cookie-consent" id="cookieConsent" role="dialog" aria-live="polite" aria-label="Cookie consent">
+  <div class="cookie-consent-inner">
+    <p>我们使用Cookie来改善您在本网站的浏览体验并分析网站流量。点击"接受"即表示您同意我们使用Cookie。您可以随时拒绝非必要的Cookie。</p>
+    <div class="cookie-consent-actions">
+      <button type="button" class="btn btn-outline" id="cookieDecline">拒绝</button>
+      <button type="button" class="btn btn-primary" id="cookieAccept">接受</button>
+    </div>
+  </div>
+</div>
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-57L8MGFK" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
@@ -484,10 +567,10 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
 
 <!-- ── Navigation ─────────────────────────────────────── -->
 <nav class="nav" role="navigation" aria-label="主导航">
-  <a href="#home" class="nav-brand" aria-label="KARSAJ CONTENT – 首页"><img src="karsaj-mark.png" alt="" width="28" height="28">KARSAJ <span>CONTENT</span></a>
+  <a href="#home" class="nav-brand" aria-label="KARSAJ CONTENT – 首页"><img src="karsaj-mark.png" alt="" width="20" height="20">KARSAJ <span>CONTENT</span></a>
 
   <div class="nav-links" role="menubar">
-    <a href="#About" role="menuitem">关于我们</a>
+    <a href="#About" role="menuitem" data-scroll-to="About">关于我们</a>
 
     <div class="nav-dd" id="servicesDD">
       <button class="nav-dd-btn" aria-haspopup="true" aria-expanded="false" onclick="toggleDD(event)">
@@ -503,8 +586,33 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
       </div>
     </div>
 
-    <a href="#FAQ" role="menuitem">核心服务</a>
-    <a href="#Contact" role="menuitem">联系我们</a>
+    <div class="nav-dd" id="coreServicesDD">
+      <button class="nav-dd-btn" aria-haspopup="true" aria-expanded="false" onclick="toggleCoreDD(event)">
+        核心服务 <span class="caret" aria-hidden="true">▼</span>
+      </button>
+      <div class="nav-dd-menu" role="menu">
+        <a href="#FAQ" role="menuitem" onclick="openAcc(event,'Demo14');closeCoreDD();">内容策略</a>
+        <a href="#FAQ" role="menuitem" onclick="openAcc(event,'Demo15');closeCoreDD();">内容设计</a>
+        <a href="#FAQ" role="menuitem" onclick="openAcc(event,'Demo16');closeCoreDD();">内容开发</a>
+        <a href="#FAQ" role="menuitem" onclick="openAcc(event,'Demo120');closeCoreDD();">内容营销</a>
+        <a href="#FAQ" role="menuitem" onclick="openAcc(event,'Demo148');closeCoreDD();">营销自动化</a>
+      </div>
+    </div>
+
+    <a href="#Contact" role="menuitem" data-scroll-to="Contact">联系我们</a>
+
+    <div class="nav-dd" id="langDD">
+      <button class="nav-dd-btn" aria-haspopup="true" aria-expanded="false" onclick="toggleLangDD(event)" aria-label="选择语言">
+        <svg class="flag-icon" aria-hidden="true"><use href="#flag-cn"></use></svg>ZH <span class="caret" aria-hidden="true">▼</span>
+      </button>
+      <div class="nav-dd-menu" role="menu">
+        <a href="index.html" role="menuitem" hreflang="en" lang="en"><svg class="flag-icon" aria-hidden="true"><use href="#flag-ca"></use></svg>English</a>
+        <a href="index-fr.html" role="menuitem" hreflang="fr-CA" lang="fr"><svg class="flag-icon" aria-hidden="true"><use href="#flag-fr"></use></svg>Français</a>
+        <a href="index-de.html" role="menuitem" hreflang="de" lang="de"><svg class="flag-icon" aria-hidden="true"><use href="#flag-de"></use></svg>Deutsch</a>
+        <a href="index-zh.html" role="menuitem" hreflang="zh-CN" lang="zh-CN"><svg class="flag-icon" aria-hidden="true"><use href="#flag-cn"></use></svg>中文</a>
+        <a href="index-ja.html" role="menuitem" hreflang="ja" lang="ja"><svg class="flag-icon" aria-hidden="true"><use href="#flag-jp"></use></svg>日本語</a>
+      </div>
+    </div>
   </div>
 
   <button class="nav-toggle" aria-label="打开导航菜单" aria-expanded="false"
@@ -515,16 +623,29 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
 
 <!-- Mobile drawer -->
 <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="移动导航" aria-modal="true">
-  <a href="#About" onclick="closeMobile()">关于我们</a>
-  <a href="#Services" onclick="closeMobile()" style="color:var(--orange);">传播服务</a>
+  <a href="#About" data-scroll-to="About" onclick="closeMobile()">关于我们</a>
+  <a href="#Services" data-scroll-to="Services" onclick="closeMobile()" style="color:var(--orange);">传播服务</a>
   <a href="#Services" class="sub" onclick="openAcc(event,'Demo7');closeMobile();">↳ 企业</a>
   <a href="#Services" class="sub" onclick="openAcc(event,'Demo4');closeMobile();">↳ 营销</a>
   <a href="#Services" class="sub" onclick="openAcc(event,'Demo5');closeMobile();">↳ 多媒体</a>
   <a href="#Services" class="sub" onclick="openAcc(event,'Demo6');closeMobile();">↳ 战略</a>
   <a href="#Services" class="sub" onclick="openAcc(event,'Demo12');closeMobile();">↳ 技术</a>
   <a href="#Services" class="sub" onclick="openAcc(event,'Demo3');closeMobile();">↳ 培训</a>
-  <a href="#FAQ" onclick="closeMobile()">核心服务常见问题</a>
-  <a href="#Contact" onclick="closeMobile()">联系我们</a>
+  <a href="#FAQ" data-scroll-to="FAQ" onclick="closeMobile()" style="color:var(--orange);">核心服务</a>
+  <a href="#FAQ" class="sub" onclick="openAcc(event,'Demo14');closeMobile();">↳ 内容策略</a>
+  <a href="#FAQ" class="sub" onclick="openAcc(event,'Demo15');closeMobile();">↳ 内容设计</a>
+  <a href="#FAQ" class="sub" onclick="openAcc(event,'Demo16');closeMobile();">↳ 内容开发</a>
+  <a href="#FAQ" class="sub" onclick="openAcc(event,'Demo120');closeMobile();">↳ 内容营销</a>
+  <a href="#FAQ" class="sub" onclick="openAcc(event,'Demo148');closeMobile();">↳ 营销自动化</a>
+  <a href="#Contact" data-scroll-to="Contact" onclick="closeMobile()">联系我们</a>
+
+  <div class="mobile-lang" style="display:flex; flex-wrap:wrap; gap:.9rem; padding:.75rem 0; align-items:center;">
+    <a href="index.html" hreflang="en" lang="en" onclick="closeMobile()" style="display:flex;align-items:center;"><svg class="flag-icon" aria-hidden="true"><use href="#flag-ca"></use></svg>EN</a>
+    <a href="index-fr.html" hreflang="fr-CA" lang="fr" onclick="closeMobile()" style="display:flex;align-items:center;"><svg class="flag-icon" aria-hidden="true"><use href="#flag-fr"></use></svg>FR</a>
+    <a href="index-de.html" hreflang="de" lang="de" onclick="closeMobile()" style="display:flex;align-items:center;"><svg class="flag-icon" aria-hidden="true"><use href="#flag-de"></use></svg>DE</a>
+    <a href="index-zh.html" hreflang="zh-CN" lang="zh-CN" onclick="closeMobile()" style="display:flex;align-items:center;"><svg class="flag-icon" aria-hidden="true"><use href="#flag-cn"></use></svg>ZH</a>
+    <a href="index-ja.html" hreflang="ja" lang="ja" onclick="closeMobile()" style="display:flex;align-items:center;"><svg class="flag-icon" aria-hidden="true"><use href="#flag-jp"></use></svg>JA</a>
+  </div>
   <a href="https://meetings.hubspot.com/kar-saj?uuid=d8a79d59-f8b1-4df8-bcb9-204a766dcfb7"
      target="_blank" rel="noopener noreferrer"
      class="mobile-cta" onclick="closeMobile()">📅 预约免费咨询</a>
@@ -544,8 +665,8 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
         <li>战略</li><li>设计</li><li>开发</li><li>营销</li><li>自动化</li>
       </ul>
       <div class="hero-btns">
-        <a href="#Services" class="btn btn-outline">我们的服务</a>
-        <a href="#Contact" class="btn btn-outline">联系我们</a>
+        <a href="#Services" class="btn btn-outline" data-scroll-to="Services">我们的服务</a>
+        <a href="#Contact" class="btn btn-outline" data-scroll-to="Contact">联系我们</a>
         <a href="https://meetings.hubspot.com/kar-saj?uuid=d8a79d59-f8b1-4df8-bcb9-204a766dcfb7"
            target="_blank" rel="noopener noreferrer" class="btn btn-outline">预约会议</a>
       </div>
@@ -825,23 +946,17 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
     <div class="container">
       <p class="section-title">联系我们</p>
       <div class="contact-grid">
+        <div class="contact-form-wrap">
+          <h3 style="margin-bottom:1rem;">给我们留言</h3>
+          <div class="klaviyo-form-RpeDF3"></div>
+        </div>
         <div>
           <h2 id="contact-h">让我们携手合作。</h2>
           <p style="color:var(--muted);margin-bottom:1.25rem;">无论您需要完整的内容策略,还是单一的交付成果,我们都随时准备帮助您实现清晰、有目的且富有影响力的沟通。</p>
           <a href="tel:+14377000966" class="contact-phone" aria-label="致电 KARSAJ CONTENT">📞 1 (437) 700-0966</a>
           <a href="https://meetings.hubspot.com/kar-saj?uuid=d8a79d59-f8b1-4df8-bcb9-204a766dcfb7"
              target="_blank" rel="noopener noreferrer"
-             class="btn btn-primary" style="margin-top:.5rem; margin-bottom:1.5rem; display:flex;">📅 预约免费咨询</a>
-          <div class="portfolio-box">
-            <h3>查看我们的作品</h3>
-            <p>索取我们的作品集与客户评价,查看我们传播工作的实际案例。</p>
-            <a href="https://us8.list-manage.com/contact-form?u=3fa1d58d2ad3ba44981d0a215&form_id=10998f5fab8fb6773c887e98235b475d"
-               target="_blank" rel="noopener noreferrer" class="btn btn-green">索取作品集与推荐资料</a>
-          </div>
-        </div>
-        <div class="contact-form-wrap">
-          <h3 style="margin-bottom:1rem;">给我们留言</h3>
-          <div class="klaviyo-form-RpeDF3"></div>
+             class="btn btn-green" style="margin-top:.5rem; margin-bottom:1.5rem; display:flex;">📅 预约免费咨询</a>
         </div>
       </div>
     </div>
@@ -851,7 +966,7 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
 
 <!-- Footer -->
 <footer role="contentinfo">
-  <div class="footer-brand"><img src="karsaj-mark.png" alt="KARSAJ CONTENT logo" width="36" height="36">KARSAJ <span>CONTENT</span></div>
+  <div class="footer-brand"><img src="karsaj-mark.png" alt="KARSAJ CONTENT logo" width="22" height="22">KARSAJ <span>CONTENT</span></div>
   <div class="footer-tagline">Ensure Customer Success™</div>
   <div class="footer-social">
     <a href="https://linktr.ee/karsaj" target="_blank" rel="noopener noreferrer"
@@ -866,6 +981,33 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
 
 <!-- ── Scripts ────────────────────────────────────────── -->
 <script>
+  /* Cookie consent */
+  (function () {
+    var STORAGE_KEY = 'karsajCookieConsent';
+    var banner = document.getElementById('cookieConsent');
+    if (!banner) return;
+
+    var stored;
+    try { stored = localStorage.getItem(STORAGE_KEY); } catch (e) { stored = null; }
+
+    if (!stored) {
+      // Slight delay so the banner slides in after the page settles, not on first paint.
+      setTimeout(function () { banner.classList.add('show'); }, 600);
+    }
+
+    function setConsent(value) {
+      try { localStorage.setItem(STORAGE_KEY, value); } catch (e) {}
+      banner.classList.remove('show');
+    }
+
+    document.getElementById('cookieAccept').addEventListener('click', function () {
+      setConsent('accepted');
+    });
+    document.getElementById('cookieDecline').addEventListener('click', function () {
+      setConsent('declined');
+    });
+  })();
+
   /* Dropdown */
   function toggleDD(e) {
     e.stopPropagation();
@@ -878,11 +1020,42 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
     dd.classList.remove('open');
     dd.querySelector('button').setAttribute('aria-expanded', 'false');
   }
+
+  /* Core Services dropdown */
+  function toggleCoreDD(e) {
+    e.stopPropagation();
+    var dd = document.getElementById('coreServicesDD');
+    var open = dd.classList.toggle('open');
+    dd.querySelector('button').setAttribute('aria-expanded', open);
+  }
+  function closeCoreDD() {
+    var dd = document.getElementById('coreServicesDD');
+    dd.classList.remove('open');
+    dd.querySelector('button').setAttribute('aria-expanded', 'false');
+  }
+
+  /* Language dropdown */
+  function toggleLangDD(e) {
+    e.stopPropagation();
+    var dd = document.getElementById('langDD');
+    var open = dd.classList.toggle('open');
+    dd.querySelector('button').setAttribute('aria-expanded', open);
+  }
+  function closeLangDD() {
+    var dd = document.getElementById('langDD');
+    dd.classList.remove('open');
+    dd.querySelector('button').setAttribute('aria-expanded', 'false');
+  }
+
   document.addEventListener('click', function(e) {
     var dd = document.getElementById('servicesDD');
     if (dd && !dd.contains(e.target)) closeDD();
+    var coreDd = document.getElementById('coreServicesDD');
+    if (coreDd && !coreDd.contains(e.target)) closeCoreDD();
+    var langDd = document.getElementById('langDD');
+    if (langDd && !langDd.contains(e.target)) closeLangDD();
   });
-  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeDD(); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { closeDD(); closeCoreDD(); closeLangDD(); } });
 
   /* Mobile menu */
   function toggleMobile(btn) {
@@ -937,6 +1110,33 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
       }
     }
   }
+
+  /* Scroll a whole section (About, Services, FAQ, Contact) flush to the top.
+     Uses a single delegated listener with a real event object (via addEventListener)
+     rather than inline onclick="...(event,...)". A corrective second pass runs
+     shortly after the first scroll to fix cases where a mobile browser's
+     address-bar/toolbar collapse changes the viewport mid-animation and cuts
+     the scroll short. */
+  document.addEventListener('click', function (e) {
+    var link = e.target.closest('[data-scroll-to]');
+    if (!link) return;
+    e.preventDefault();
+    var el = document.getElementById(link.getAttribute('data-scroll-to'));
+    if (!el) return;
+
+    function targetY() {
+      var navH = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 60;
+      return el.getBoundingClientRect().top + window.pageYOffset - navH;
+    }
+
+    window.scrollTo({ top: targetY(), behavior: 'smooth' });
+    // Correction pass: re-checks the position once the viewport has settled
+    // (e.g. after a mobile toolbar collapses) and nudges to the exact spot.
+    setTimeout(function () {
+      var diff = Math.abs(window.pageYOffset - targetY());
+      if (diff > 4) window.scrollTo({ top: targetY(), behavior: 'smooth' });
+    }, 500);
+  });
 </script>
 
 <!-- HubSpot -->
