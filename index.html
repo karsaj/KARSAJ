@@ -570,7 +570,15 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
   <a href="#home" class="nav-brand" aria-label="KARSAJ CONTENT – home"><img src="karsaj-mark.png" alt="" width="20" height="20">KARSAJ <span>CONTENT</span></a>
 
   <div class="nav-links" role="menubar">
-    <a href="#About" role="menuitem" data-scroll-to="About">About</a>
+    <div class="nav-dd" id="aboutDD">
+      <button class="nav-dd-btn" aria-haspopup="true" aria-expanded="false" onclick="toggleAboutDD(event)">
+        About <span class="caret" aria-hidden="true">▼</span>
+      </button>
+      <div class="nav-dd-menu" role="menu">
+        <a href="#About" role="menuitem" data-scroll-to="About" onclick="closeAboutDD()">About Us</a>
+        <a href="#HowWeWork" role="menuitem" data-scroll-to="HowWeWork" onclick="closeAboutDD()">How We Work</a>
+      </div>
+    </div>
 
     <div class="nav-dd" id="servicesDD">
       <button class="nav-dd-btn" aria-haspopup="true" aria-expanded="false" onclick="toggleDD(event)">
@@ -624,6 +632,8 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
 <!-- Mobile drawer -->
 <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation" aria-modal="true">
   <a href="#About" data-scroll-to="About" onclick="closeMobile()">About</a>
+  <a href="#About" class="sub" data-scroll-to="About" onclick="closeMobile()">↳ About Us</a>
+  <a href="#HowWeWork" class="sub" data-scroll-to="HowWeWork" onclick="closeMobile()">↳ How We Work</a>
   <a href="#Services" data-scroll-to="Services" onclick="closeMobile()" style="color:var(--orange);">Communications Services</a>
   <a href="#Services" class="sub" onclick="openAcc(event,'Demo7');closeMobile();">↳ Corporate</a>
   <a href="#Services" class="sub" onclick="openAcc(event,'Demo4');closeMobile();">↳ Marketing</a>
@@ -895,7 +905,7 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
   </section>
 
   <!-- Tools -->
-  <section class="section" aria-labelledby="tools-h" style="background:var(--white);">
+  <section class="section" id="HowWeWork" aria-labelledby="tools-h" style="background:var(--white);">
     <div class="container">
       <p class="section-title">How We Work</p>
       <h2 id="tools-h" style="margin-bottom:.75rem;">Our Main Toolset</h2>
@@ -1022,6 +1032,19 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
     dd.querySelector('button').setAttribute('aria-expanded', 'false');
   }
 
+  /* About dropdown */
+  function toggleAboutDD(e) {
+    e.stopPropagation();
+    var dd = document.getElementById('aboutDD');
+    var open = dd.classList.toggle('open');
+    dd.querySelector('button').setAttribute('aria-expanded', open);
+  }
+  function closeAboutDD() {
+    var dd = document.getElementById('aboutDD');
+    dd.classList.remove('open');
+    dd.querySelector('button').setAttribute('aria-expanded', 'false');
+  }
+
   /* Core Services dropdown */
   function toggleCoreDD(e) {
     e.stopPropagation();
@@ -1049,6 +1072,8 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
   }
 
   document.addEventListener('click', function(e) {
+    var aboutDd = document.getElementById('aboutDD');
+    if (aboutDd && !aboutDd.contains(e.target)) closeAboutDD();
     var dd = document.getElementById('servicesDD');
     if (dd && !dd.contains(e.target)) closeDD();
     var coreDd = document.getElementById('coreServicesDD');
@@ -1056,7 +1081,7 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
     var langDd = document.getElementById('langDD');
     if (langDd && !langDd.contains(e.target)) closeLangDD();
   });
-  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { closeDD(); closeCoreDD(); closeLangDD(); } });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { closeAboutDD(); closeDD(); closeCoreDD(); closeLangDD(); } });
 
   /* Mobile menu */
   function toggleMobile(btn) {
