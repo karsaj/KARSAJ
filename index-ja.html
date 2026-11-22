@@ -15,8 +15,15 @@
 <meta name="keywords" content="テクニカルライティング, コンテンツ戦略, デジタルマーケティング, インストラクショナルデザイン, eラーニング, UXライティング, マーケティングコミュニケーション, トロント, カナダ">
 <meta name="author" content="KARSAJ CONTENT">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://www.karsaj.com/">
+<link rel="canonical" href="https://www.karsaj.com/index-ja.html">
 <link rel="icon" href="cc.png">
+<link rel="apple-touch-icon" href="cc.png">
+<link rel="alternate" hreflang="en" href="https://www.karsaj.com/">
+<link rel="alternate" hreflang="fr-CA" href="https://www.karsaj.com/index-fr.html">
+<link rel="alternate" hreflang="de" href="https://www.karsaj.com/index-de.html">
+<link rel="alternate" hreflang="zh-CN" href="https://www.karsaj.com/index-zh.html">
+<link rel="alternate" hreflang="ja" href="https://www.karsaj.com/index-ja.html">
+<link rel="alternate" hreflang="x-default" href="https://www.karsaj.com/">
 <!-- Mobile browser chrome colour -->
 <meta name="theme-color" content="#111111">
 <meta name="msapplication-TileColor" content="#FECB00">
@@ -28,10 +35,11 @@
 
 <!-- ── Open Graph ─────────────────────────────────────── -->
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://www.karsaj.com/">
+<meta property="og:url" content="https://www.karsaj.com/index-ja.html">
 <meta property="og:title" content="KARSAJ CONTENT | テクニカルライティング&amp;デジタルマーケティング">
 <meta property="og:description" content="専門的なテクニカルライティング、コンテンツ戦略、デジタルマーケティング、マルチメディアコミュニケーション。20年以上にわたり、組織が明確かつ効果的に、そして大規模にコミュニケーションできるよう支援しています。">
 <meta property="og:image" content="https://www.karsaj.com/dc2.gif">
+<meta property="og:image:alt" content="プロフェッショナルなコミュニケーションを象徴するモダンな都市の建築">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:site_name" content="KARSAJ CONTENT">
 
@@ -40,6 +48,7 @@
 <meta name="twitter:title" content="KARSAJ CONTENT | テクニカルライティング&amp;デジタルマーケティング">
 <meta name="twitter:description" content="あらゆる規模の組織向けの専門的なテクニカルライティング、コンテンツ戦略、デジタルマーケティング、マルチメディアコミュニケーション。">
 <meta name="twitter:image" content="https://www.karsaj.com/dc2.gif">
+<meta name="twitter:image:alt" content="プロフェッショナルなコミュニケーションを象徴するモダンな都市の建築">
 
 <!-- ── Structured Data: ProfessionalService ─────────── -->
 <script type="application/ld+json">
@@ -106,7 +115,7 @@
 <!-- ── Fonts ──────────────────────────────────────────── -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Source+Serif+4:wght@300;400&display=swap&font-display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Source+Serif+4:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
 /* ── Design tokens ────────────────────────────────────── */
@@ -235,7 +244,9 @@ li { margin-bottom: .35rem; }
   box-shadow: 0 8px 24px rgba(0,0,0,.12); z-index: 300;
 }
 .nav-dd:hover .nav-dd-menu,
+.nav-dd:focus-within .nav-dd-menu,
 .nav-dd.open  .nav-dd-menu { display: block; }
+main section[id] { scroll-margin-top: calc(var(--nav-h, 60px) + 8px); }
 .nav-dd-menu a {
   display: flex; align-items: center; min-height: 44px;
   padding: .75rem 1.1rem;
@@ -566,51 +577,59 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
 <a href="#main-content" class="visually-hidden" style="position:fixed;top:8px;left:8px;z-index:9999;background:var(--orange);color:#fff;padding:.5rem 1rem;border-radius:4px;font-family:Montserrat,sans-serif;font-weight:700;text-decoration:none;" onfocus="this.style.clip='auto';this.style.width='auto';this.style.height='auto';">メインコンテンツへスキップ</a>
 
 <!-- ── Navigation ─────────────────────────────────────── -->
-<nav class="nav" role="navigation" aria-label="メインナビゲーション">
+<nav class="nav" aria-label="メインナビゲーション">
   <a href="#home" class="nav-brand" aria-label="KARSAJ CONTENT – ホーム"><img src="karsaj-mark.png" alt="" width="20" height="20">KARSAJ <span>CONTENT</span></a>
 
-  <div class="nav-links" role="menubar">
-    <a href="#About" role="menuitem" data-scroll-to="About">会社概要</a>
+  <div class="nav-links">
+    <div class="nav-dd" id="aboutDD">
+      <button class="nav-dd-btn" aria-expanded="false" onclick="toggleAboutDD(event)">
+        会社概要 <span class="caret" aria-hidden="true">▼</span>
+      </button>
+      <div class="nav-dd-menu">
+        <a href="#About" data-scroll-to="About" onclick="closeAboutDD()">事業内容</a>
+        <a href="#HowWeWork" data-scroll-to="HowWeWork" onclick="closeAboutDD()">私たちの働き方</a>
+      </div>
+    </div>
 
     <div class="nav-dd" id="servicesDD">
-      <button class="nav-dd-btn" aria-haspopup="true" aria-expanded="false" onclick="toggleDD(event)">
+      <button class="nav-dd-btn" aria-expanded="false" onclick="toggleDD(event)">
         コンテンツの種類 <span class="caret" aria-hidden="true">▼</span>
       </button>
-      <div class="nav-dd-menu" role="menu">
-        <a href="#Services" role="menuitem" onclick="openAcc(event,'Demo7');closeDD();">コーポレートコミュニケーション</a>
-        <a href="#Services" role="menuitem" onclick="openAcc(event,'Demo4');closeDD();">マーケティングコミュニケーション</a>
-        <a href="#Services" role="menuitem" onclick="openAcc(event,'Demo5');closeDD();">マルチメディアコミュニケーション</a>
-        <a href="#Services" role="menuitem" onclick="openAcc(event,'Demo6');closeDD();">戦略的コミュニケーション</a>
-        <a href="#Services" role="menuitem" onclick="openAcc(event,'Demo12');closeDD();">テクニカルコミュニケーション</a>
-        <a href="#Services" role="menuitem" onclick="openAcc(event,'Demo3');closeDD();">研修コミュニケーション</a>
+      <div class="nav-dd-menu">
+        <a href="#Services" onclick="openAcc(event,'Demo7');closeDD();">コーポレートコミュニケーション</a>
+        <a href="#Services" onclick="openAcc(event,'Demo4');closeDD();">マーケティングコミュニケーション</a>
+        <a href="#Services" onclick="openAcc(event,'Demo5');closeDD();">マルチメディアコミュニケーション</a>
+        <a href="#Services" onclick="openAcc(event,'Demo6');closeDD();">戦略的コミュニケーション</a>
+        <a href="#Services" onclick="openAcc(event,'Demo12');closeDD();">テクニカルコミュニケーション</a>
+        <a href="#Services" onclick="openAcc(event,'Demo3');closeDD();">研修コミュニケーション</a>
       </div>
     </div>
 
     <div class="nav-dd" id="coreServicesDD">
-      <button class="nav-dd-btn" aria-haspopup="true" aria-expanded="false" onclick="toggleCoreDD(event)">
+      <button class="nav-dd-btn" aria-expanded="false" onclick="toggleCoreDD(event)">
         主要サービス <span class="caret" aria-hidden="true">▼</span>
       </button>
-      <div class="nav-dd-menu" role="menu">
-        <a href="#FAQ" role="menuitem" onclick="openAcc(event,'Demo14');closeCoreDD();">コンテンツ戦略</a>
-        <a href="#FAQ" role="menuitem" onclick="openAcc(event,'Demo15');closeCoreDD();">コンテンツデザイン</a>
-        <a href="#FAQ" role="menuitem" onclick="openAcc(event,'Demo16');closeCoreDD();">コンテンツ開発</a>
-        <a href="#FAQ" role="menuitem" onclick="openAcc(event,'Demo120');closeCoreDD();">コンテンツマーケティング</a>
-        <a href="#FAQ" role="menuitem" onclick="openAcc(event,'Demo148');closeCoreDD();">マーケティングオートメーション</a>
+      <div class="nav-dd-menu">
+        <a href="#FAQ" onclick="openAcc(event,'Demo14');closeCoreDD();">コンテンツ戦略</a>
+        <a href="#FAQ" onclick="openAcc(event,'Demo15');closeCoreDD();">コンテンツデザイン</a>
+        <a href="#FAQ" onclick="openAcc(event,'Demo16');closeCoreDD();">コンテンツ開発</a>
+        <a href="#FAQ" onclick="openAcc(event,'Demo120');closeCoreDD();">コンテンツマーケティング</a>
+        <a href="#FAQ" onclick="openAcc(event,'Demo148');closeCoreDD();">マーケティングオートメーション</a>
       </div>
     </div>
 
-    <a href="#Contact" role="menuitem" data-scroll-to="Contact">お問い合わせ</a>
+    <a href="#Contact" data-scroll-to="Contact">お問い合わせ</a>
 
     <div class="nav-dd" id="langDD">
-      <button class="nav-dd-btn" aria-haspopup="true" aria-expanded="false" onclick="toggleLangDD(event)" aria-label="言語を選択">
+      <button class="nav-dd-btn" aria-expanded="false" onclick="toggleLangDD(event)" aria-label="言語を選択">
         <svg class="flag-icon" aria-hidden="true"><use href="#flag-jp"></use></svg>JA <span class="caret" aria-hidden="true">▼</span>
       </button>
-      <div class="nav-dd-menu" role="menu">
-        <a href="index.html" role="menuitem" hreflang="en" lang="en"><svg class="flag-icon" aria-hidden="true"><use href="#flag-ca"></use></svg>English</a>
-        <a href="index-fr.html" role="menuitem" hreflang="fr-CA" lang="fr"><svg class="flag-icon" aria-hidden="true"><use href="#flag-fr"></use></svg>Français</a>
-        <a href="index-de.html" role="menuitem" hreflang="de" lang="de"><svg class="flag-icon" aria-hidden="true"><use href="#flag-de"></use></svg>Deutsch</a>
-        <a href="index-zh.html" role="menuitem" hreflang="zh-CN" lang="zh-CN"><svg class="flag-icon" aria-hidden="true"><use href="#flag-cn"></use></svg>中文</a>
-        <a href="index-ja.html" role="menuitem" hreflang="ja" lang="ja"><svg class="flag-icon" aria-hidden="true"><use href="#flag-jp"></use></svg>日本語</a>
+      <div class="nav-dd-menu">
+        <a href="index.html" hreflang="en" lang="en"><svg class="flag-icon" aria-hidden="true"><use href="#flag-ca"></use></svg>English</a>
+        <a href="index-fr.html" hreflang="fr-CA" lang="fr"><svg class="flag-icon" aria-hidden="true"><use href="#flag-fr"></use></svg>Français</a>
+        <a href="index-de.html" hreflang="de" lang="de"><svg class="flag-icon" aria-hidden="true"><use href="#flag-de"></use></svg>Deutsch</a>
+        <a href="index-zh.html" hreflang="zh-CN" lang="zh-CN"><svg class="flag-icon" aria-hidden="true"><use href="#flag-cn"></use></svg>中文</a>
+        <a href="index-ja.html" hreflang="ja" lang="ja"><svg class="flag-icon" aria-hidden="true"><use href="#flag-jp"></use></svg>日本語</a>
       </div>
     </div>
   </div>
@@ -624,6 +643,8 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
 <!-- Mobile drawer -->
 <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="モバイルナビゲーション" aria-modal="true">
   <a href="#About" data-scroll-to="About" onclick="closeMobile()">会社概要</a>
+  <a href="#About" class="sub" data-scroll-to="About" onclick="closeMobile()">↳ 事業内容</a>
+  <a href="#HowWeWork" class="sub" data-scroll-to="HowWeWork" onclick="closeMobile()">↳ 私たちの働き方</a>
   <a href="#Services" data-scroll-to="Services" onclick="closeMobile()" style="color:var(--orange);">コミュニケーションサービス</a>
   <a href="#Services" class="sub" onclick="openAcc(event,'Demo7');closeMobile();">↳ コーポレート</a>
   <a href="#Services" class="sub" onclick="openAcc(event,'Demo4');closeMobile();">↳ マーケティング</a>
@@ -712,7 +733,7 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
         <button class="acc-btn" onclick="toggleAcc(this,'Demo7')" aria-expanded="false" aria-controls="Demo7" id="m1b">
           コーポレートコミュニケーション <span class="caret" aria-hidden="true">▼</span>
         </button>
-        <div class="acc-body" id="Demo7" role="region">
+        <div class="acc-body" id="Demo7" role="region" aria-labelledby="m1b">
           <p>コーポレートコミュニケーションは、組織と社内外のステークホルダー(従業員、経営陣、投資家、メディア、一般社会)との間のメッセージングを管理・調整し、一貫したブランドボイスの構築、評判の保護、ビジネス目標の達成を支援します。</p>
           <ol>
             <li><strong>社内コミュニケーション:</strong> 従業員向けニュースレター、イントラネットコンテンツ、経営陣からのメモ、チェンジマネジメントに関するメッセージなど、社員への情報共有と意識統一を図ります。</li>
@@ -729,7 +750,7 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
         <button class="acc-btn" onclick="toggleAcc(this,'Demo4')" aria-expanded="false" aria-controls="Demo4" id="m1">
           マーケティングコミュニケーション <span class="caret" aria-hidden="true">▼</span>
         </button>
-        <div class="acc-body" id="Demo4" role="region">
+        <div class="acc-body" id="Demo4" role="region" aria-labelledby="m1">
           <p>マーケティングコミュニケーション(MarCom)とは、広告、ダイレクトマーケティング、ブランディング、広報活動、ソーシャルメディアなど、市場とのコミュニケーションに用いるあらゆるメッセージやメディアを指します。主な目的は次の通りです。</p>
           <ol>
             <li>自社の製品やサービスに対する需要と好意度を生み出し、維持すること。</li>
@@ -744,7 +765,7 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
         <button class="acc-btn" onclick="toggleAcc(this,'Demo5')" aria-expanded="false" aria-controls="Demo5" id="m2">
           マルチメディアコミュニケーション <span class="caret" aria-hidden="true">▼</span>
         </button>
-        <div class="acc-body" id="Demo5" role="region">
+        <div class="acc-body" id="Demo5" role="region" aria-labelledby="m2">
           <p>マルチメディアコミュニケーションは、テキスト、音声、画像、アニメーション、動画を組み合わせ、複数の感覚に訴える一貫性のある意味深いメッセージを作り出します。</p>
           <ol>
             <li><strong>ビジュアルストーリーテリング:</strong> 高品質なビジュアルは、テキストのみよりも効果的に情報を伝え、感情に訴えかけます。</li>
@@ -759,7 +780,7 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
         <button class="acc-btn" onclick="toggleAcc(this,'Demo6')" aria-expanded="false" aria-controls="Demo6" id="m3">
           戦略的コミュニケーション <span class="caret" aria-hidden="true">▼</span>
         </button>
-        <div class="acc-body" id="Demo6" role="region">
+        <div class="acc-body" id="Demo6" role="region" aria-labelledby="m3">
           <p>戦略的コミュニケーションは、組織の特定の目標を達成するために、コミュニケーション活動を意図的に計画・実行・評価することを指します。</p>
           <ol>
             <li><strong>目標設定:</strong> 明確で測定可能な目標を定義します。</li>
@@ -776,7 +797,7 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
         <button class="acc-btn" onclick="toggleAcc(this,'Demo12')" aria-expanded="false" aria-controls="Demo12" id="m4">
           テクニカルコミュニケーション <span class="caret" aria-hidden="true">▼</span>
         </button>
-        <div class="acc-body" id="Demo12" role="region">
+        <div class="acc-body" id="Demo12" role="region" aria-labelledby="m4">
           <p>テクニカルコミュニケーションは、複雑な情報を明確・簡潔・わかりやすく伝えるものであり、ユーザーが製品・システム・サービスを理解し、効果的に活用するために不可欠です。</p>
           <ol>
             <li><strong>テクニカルライティング:</strong> ユーザーマニュアル、操作ガイド、各種ドキュメントを作成します。</li>
@@ -792,7 +813,7 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
         <button class="acc-btn" onclick="toggleAcc(this,'Demo3')" aria-expanded="false" aria-controls="Demo3" id="m0">
           研修コミュニケーション <span class="caret" aria-hidden="true">▼</span>
         </button>
-        <div class="acc-body" id="Demo3" role="region">
+        <div class="acc-body" id="Demo3" role="region" aria-labelledby="m0">
           <p>研修コミュニケーションとは、研修中に情報や指示を伝えるための手法や実践方法を指し、学習体験の向上を目的としています。</p>
           <ol>
             <li><strong>明確さ:</strong> わかりやすく理解しやすい指示や情報を提供します。</li>
@@ -895,7 +916,7 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
   </section>
 
   <!-- Tools -->
-  <section class="section" aria-labelledby="tools-h" style="background:var(--white);">
+  <section class="section" id="HowWeWork" aria-labelledby="tools-h" style="background:var(--white);">
     <div class="container">
       <p class="section-title">私たちの取り組み方</p>
       <h2 id="tools-h" style="margin-bottom:.75rem;">主な使用ツール</h2>
@@ -965,7 +986,7 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
 </main>
 
 <!-- Footer -->
-<footer role="contentinfo">
+<footer>
   <div class="footer-brand"><img src="karsaj-mark.png" alt="KARSAJ CONTENT logo" width="22" height="22">KARSAJ <span>CONTENT</span></div>
   <div class="footer-tagline">Ensure Customer Success™</div>
   <div class="footer-social">
@@ -1010,6 +1031,17 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
   })();
 
   /* Dropdown */
+  function toggleAboutDD(e) {
+    e.stopPropagation();
+    var dd = document.getElementById('aboutDD');
+    var open = dd.classList.toggle('open');
+    dd.querySelector('button').setAttribute('aria-expanded', open);
+  }
+  function closeAboutDD() {
+    var dd = document.getElementById('aboutDD');
+    dd.classList.remove('open');
+    dd.querySelector('button').setAttribute('aria-expanded', 'false');
+  }
   function toggleDD(e) {
     e.stopPropagation();
     var dd = document.getElementById('servicesDD');
@@ -1049,6 +1081,8 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
   }
 
   document.addEventListener('click', function(e) {
+    var aboutDd = document.getElementById('aboutDD');
+    if (aboutDd && !aboutDd.contains(e.target)) closeAboutDD();
     var dd = document.getElementById('servicesDD');
     if (dd && !dd.contains(e.target)) closeDD();
     var coreDd = document.getElementById('coreServicesDD');
@@ -1056,7 +1090,12 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
     var langDd = document.getElementById('langDD');
     if (langDd && !langDd.contains(e.target)) closeLangDD();
   });
-  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { closeDD(); closeCoreDD(); closeLangDD(); } });
+  document.addEventListener('keydown', function(e) {
+    if (e.key !== 'Escape') return;
+    closeAboutDD(); closeDD(); closeCoreDD(); closeLangDD();
+    var m = document.getElementById('mobileMenu');
+    if (m && m.classList.contains('open')) { closeMobile(); var t = document.querySelector('.nav-toggle'); if (t) t.focus(); }
+  });
 
   /* Mobile menu */
   function toggleMobile(btn) {

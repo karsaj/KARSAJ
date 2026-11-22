@@ -15,8 +15,15 @@
 <meta name="keywords" content="技术写作, 内容策略, 数字营销, 教学设计, 在线学习, UX写作, 营销传播, 多伦多, 加拿大">
 <meta name="author" content="KARSAJ CONTENT">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://www.karsaj.com/">
+<link rel="canonical" href="https://www.karsaj.com/index-zh.html">
 <link rel="icon" href="cc.png">
+<link rel="apple-touch-icon" href="cc.png">
+<link rel="alternate" hreflang="en" href="https://www.karsaj.com/">
+<link rel="alternate" hreflang="fr-CA" href="https://www.karsaj.com/index-fr.html">
+<link rel="alternate" hreflang="de" href="https://www.karsaj.com/index-de.html">
+<link rel="alternate" hreflang="zh-CN" href="https://www.karsaj.com/index-zh.html">
+<link rel="alternate" hreflang="ja" href="https://www.karsaj.com/index-ja.html">
+<link rel="alternate" hreflang="x-default" href="https://www.karsaj.com/">
 <!-- Mobile browser chrome colour -->
 <meta name="theme-color" content="#111111">
 <meta name="msapplication-TileColor" content="#FECB00">
@@ -28,10 +35,11 @@
 
 <!-- ── Open Graph ─────────────────────────────────────── -->
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://www.karsaj.com/">
+<meta property="og:url" content="https://www.karsaj.com/index-zh.html">
 <meta property="og:title" content="KARSAJ CONTENT | 技术写作与数字营销">
 <meta property="og:description" content="专业的技术写作、内容策略、数字营销和多媒体传播服务。20多年来,帮助各类组织清晰、有效、规模化地进行沟通。">
 <meta property="og:image" content="https://www.karsaj.com/dc2.gif">
+<meta property="og:image:alt" content="象征专业传播的现代城市建筑">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:site_name" content="KARSAJ CONTENT">
 
@@ -40,6 +48,7 @@
 <meta name="twitter:title" content="KARSAJ CONTENT | 技术写作与数字营销">
 <meta name="twitter:description" content="面向各类规模组织的专业技术写作、内容策略、数字营销和多媒体传播服务。">
 <meta name="twitter:image" content="https://www.karsaj.com/dc2.gif">
+<meta name="twitter:image:alt" content="象征专业传播的现代城市建筑">
 
 <!-- ── Structured Data: ProfessionalService ─────────── -->
 <script type="application/ld+json">
@@ -106,7 +115,7 @@
 <!-- ── Fonts ──────────────────────────────────────────── -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Source+Serif+4:wght@300;400&display=swap&font-display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Source+Serif+4:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
 /* ── Design tokens ────────────────────────────────────── */
@@ -235,7 +244,9 @@ li { margin-bottom: .35rem; }
   box-shadow: 0 8px 24px rgba(0,0,0,.12); z-index: 300;
 }
 .nav-dd:hover .nav-dd-menu,
+.nav-dd:focus-within .nav-dd-menu,
 .nav-dd.open  .nav-dd-menu { display: block; }
+main section[id] { scroll-margin-top: calc(var(--nav-h, 60px) + 8px); }
 .nav-dd-menu a {
   display: flex; align-items: center; min-height: 44px;
   padding: .75rem 1.1rem;
@@ -566,51 +577,59 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
 <a href="#main-content" class="visually-hidden" style="position:fixed;top:8px;left:8px;z-index:9999;background:var(--orange);color:#fff;padding:.5rem 1rem;border-radius:4px;font-family:Montserrat,sans-serif;font-weight:700;text-decoration:none;" onfocus="this.style.clip='auto';this.style.width='auto';this.style.height='auto';">跳转到主要内容</a>
 
 <!-- ── Navigation ─────────────────────────────────────── -->
-<nav class="nav" role="navigation" aria-label="主导航">
+<nav class="nav" aria-label="主导航">
   <a href="#home" class="nav-brand" aria-label="KARSAJ CONTENT – 首页"><img src="karsaj-mark.png" alt="" width="20" height="20">KARSAJ <span>CONTENT</span></a>
 
-  <div class="nav-links" role="menubar">
-    <a href="#About" role="menuitem" data-scroll-to="About">关于我们</a>
+  <div class="nav-links">
+    <div class="nav-dd" id="aboutDD">
+      <button class="nav-dd-btn" aria-expanded="false" onclick="toggleAboutDD(event)">
+        关于我们 <span class="caret" aria-hidden="true">▼</span>
+      </button>
+      <div class="nav-dd-menu">
+        <a href="#About" data-scroll-to="About" onclick="closeAboutDD()">我们的业务</a>
+        <a href="#HowWeWork" data-scroll-to="HowWeWork" onclick="closeAboutDD()">我们的工作方式</a>
+      </div>
+    </div>
 
     <div class="nav-dd" id="servicesDD">
-      <button class="nav-dd-btn" aria-haspopup="true" aria-expanded="false" onclick="toggleDD(event)">
+      <button class="nav-dd-btn" aria-expanded="false" onclick="toggleDD(event)">
         内容类型 <span class="caret" aria-hidden="true">▼</span>
       </button>
-      <div class="nav-dd-menu" role="menu">
-        <a href="#Services" role="menuitem" onclick="openAcc(event,'Demo7');closeDD();">企业传播</a>
-        <a href="#Services" role="menuitem" onclick="openAcc(event,'Demo4');closeDD();">营销传播</a>
-        <a href="#Services" role="menuitem" onclick="openAcc(event,'Demo5');closeDD();">多媒体传播</a>
-        <a href="#Services" role="menuitem" onclick="openAcc(event,'Demo6');closeDD();">战略传播</a>
-        <a href="#Services" role="menuitem" onclick="openAcc(event,'Demo12');closeDD();">技术传播</a>
-        <a href="#Services" role="menuitem" onclick="openAcc(event,'Demo3');closeDD();">培训传播</a>
+      <div class="nav-dd-menu">
+        <a href="#Services" onclick="openAcc(event,'Demo7');closeDD();">企业传播</a>
+        <a href="#Services" onclick="openAcc(event,'Demo4');closeDD();">营销传播</a>
+        <a href="#Services" onclick="openAcc(event,'Demo5');closeDD();">多媒体传播</a>
+        <a href="#Services" onclick="openAcc(event,'Demo6');closeDD();">战略传播</a>
+        <a href="#Services" onclick="openAcc(event,'Demo12');closeDD();">技术传播</a>
+        <a href="#Services" onclick="openAcc(event,'Demo3');closeDD();">培训传播</a>
       </div>
     </div>
 
     <div class="nav-dd" id="coreServicesDD">
-      <button class="nav-dd-btn" aria-haspopup="true" aria-expanded="false" onclick="toggleCoreDD(event)">
+      <button class="nav-dd-btn" aria-expanded="false" onclick="toggleCoreDD(event)">
         核心服务 <span class="caret" aria-hidden="true">▼</span>
       </button>
-      <div class="nav-dd-menu" role="menu">
-        <a href="#FAQ" role="menuitem" onclick="openAcc(event,'Demo14');closeCoreDD();">内容策略</a>
-        <a href="#FAQ" role="menuitem" onclick="openAcc(event,'Demo15');closeCoreDD();">内容设计</a>
-        <a href="#FAQ" role="menuitem" onclick="openAcc(event,'Demo16');closeCoreDD();">内容开发</a>
-        <a href="#FAQ" role="menuitem" onclick="openAcc(event,'Demo120');closeCoreDD();">内容营销</a>
-        <a href="#FAQ" role="menuitem" onclick="openAcc(event,'Demo148');closeCoreDD();">营销自动化</a>
+      <div class="nav-dd-menu">
+        <a href="#FAQ" onclick="openAcc(event,'Demo14');closeCoreDD();">内容策略</a>
+        <a href="#FAQ" onclick="openAcc(event,'Demo15');closeCoreDD();">内容设计</a>
+        <a href="#FAQ" onclick="openAcc(event,'Demo16');closeCoreDD();">内容开发</a>
+        <a href="#FAQ" onclick="openAcc(event,'Demo120');closeCoreDD();">内容营销</a>
+        <a href="#FAQ" onclick="openAcc(event,'Demo148');closeCoreDD();">营销自动化</a>
       </div>
     </div>
 
-    <a href="#Contact" role="menuitem" data-scroll-to="Contact">联系我们</a>
+    <a href="#Contact" data-scroll-to="Contact">联系我们</a>
 
     <div class="nav-dd" id="langDD">
-      <button class="nav-dd-btn" aria-haspopup="true" aria-expanded="false" onclick="toggleLangDD(event)" aria-label="选择语言">
+      <button class="nav-dd-btn" aria-expanded="false" onclick="toggleLangDD(event)" aria-label="选择语言">
         <svg class="flag-icon" aria-hidden="true"><use href="#flag-cn"></use></svg>ZH <span class="caret" aria-hidden="true">▼</span>
       </button>
-      <div class="nav-dd-menu" role="menu">
-        <a href="index.html" role="menuitem" hreflang="en" lang="en"><svg class="flag-icon" aria-hidden="true"><use href="#flag-ca"></use></svg>English</a>
-        <a href="index-fr.html" role="menuitem" hreflang="fr-CA" lang="fr"><svg class="flag-icon" aria-hidden="true"><use href="#flag-fr"></use></svg>Français</a>
-        <a href="index-de.html" role="menuitem" hreflang="de" lang="de"><svg class="flag-icon" aria-hidden="true"><use href="#flag-de"></use></svg>Deutsch</a>
-        <a href="index-zh.html" role="menuitem" hreflang="zh-CN" lang="zh-CN"><svg class="flag-icon" aria-hidden="true"><use href="#flag-cn"></use></svg>中文</a>
-        <a href="index-ja.html" role="menuitem" hreflang="ja" lang="ja"><svg class="flag-icon" aria-hidden="true"><use href="#flag-jp"></use></svg>日本語</a>
+      <div class="nav-dd-menu">
+        <a href="index.html" hreflang="en" lang="en"><svg class="flag-icon" aria-hidden="true"><use href="#flag-ca"></use></svg>English</a>
+        <a href="index-fr.html" hreflang="fr-CA" lang="fr"><svg class="flag-icon" aria-hidden="true"><use href="#flag-fr"></use></svg>Français</a>
+        <a href="index-de.html" hreflang="de" lang="de"><svg class="flag-icon" aria-hidden="true"><use href="#flag-de"></use></svg>Deutsch</a>
+        <a href="index-zh.html" hreflang="zh-CN" lang="zh-CN"><svg class="flag-icon" aria-hidden="true"><use href="#flag-cn"></use></svg>中文</a>
+        <a href="index-ja.html" hreflang="ja" lang="ja"><svg class="flag-icon" aria-hidden="true"><use href="#flag-jp"></use></svg>日本語</a>
       </div>
     </div>
   </div>
@@ -624,6 +643,8 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
 <!-- Mobile drawer -->
 <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="移动导航" aria-modal="true">
   <a href="#About" data-scroll-to="About" onclick="closeMobile()">关于我们</a>
+  <a href="#About" class="sub" data-scroll-to="About" onclick="closeMobile()">↳ 我们的业务</a>
+  <a href="#HowWeWork" class="sub" data-scroll-to="HowWeWork" onclick="closeMobile()">↳ 我们的工作方式</a>
   <a href="#Services" data-scroll-to="Services" onclick="closeMobile()" style="color:var(--orange);">传播服务</a>
   <a href="#Services" class="sub" onclick="openAcc(event,'Demo7');closeMobile();">↳ 企业</a>
   <a href="#Services" class="sub" onclick="openAcc(event,'Demo4');closeMobile();">↳ 营销</a>
@@ -712,7 +733,7 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
         <button class="acc-btn" onclick="toggleAcc(this,'Demo7')" aria-expanded="false" aria-controls="Demo7" id="m1b">
           企业传播 <span class="caret" aria-hidden="true">▼</span>
         </button>
-        <div class="acc-body" id="Demo7" role="region">
+        <div class="acc-body" id="Demo7" role="region" aria-labelledby="m1b">
           <p>企业传播负责管理与协调组织内部及外部利益相关方——员工、高管、投资者、媒体与公众——之间的信息传递,以建立一致的品牌声音、维护声誉并支持业务目标。</p>
           <ol>
             <li><strong>内部传播:</strong>员工通讯、内网内容、领导层备忘录以及变革管理信息,让员工保持知情并与组织方向一致。</li>
@@ -729,7 +750,7 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
         <button class="acc-btn" onclick="toggleAcc(this,'Demo4')" aria-expanded="false" aria-controls="Demo4" id="m1">
           营销传播 <span class="caret" aria-hidden="true">▼</span>
         </button>
-        <div class="acc-body" id="Demo4" role="region">
+        <div class="acc-body" id="Demo4" role="region" aria-labelledby="m1">
           <p>营销传播(MarCom)涵盖您与市场沟通所使用的一切信息与媒介——广告、直复营销、品牌塑造、公共关系、社交媒体等等。其主要目标是:</p>
           <ol>
             <li>创造并维持消费者对您产品或服务的需求与偏好。</li>
@@ -744,7 +765,7 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
         <button class="acc-btn" onclick="toggleAcc(this,'Demo5')" aria-expanded="false" aria-controls="Demo5" id="m2">
           多媒体传播 <span class="caret" aria-hidden="true">▼</span>
         </button>
-        <div class="acc-body" id="Demo5" role="region">
+        <div class="acc-body" id="Demo5" role="region" aria-labelledby="m2">
           <p>多媒体传播将文字、音频、图像、动画和视频相结合,创造出连贯且有意义的信息,调动多重感官体验。</p>
           <ol>
             <li><strong>视觉叙事:</strong>相比纯文字,高质量的视觉内容能更有效地传达信息并激发情感共鸣。</li>
@@ -759,7 +780,7 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
         <button class="acc-btn" onclick="toggleAcc(this,'Demo6')" aria-expanded="false" aria-controls="Demo6" id="m3">
           战略传播 <span class="caret" aria-hidden="true">▼</span>
         </button>
-        <div class="acc-body" id="Demo6" role="region">
+        <div class="acc-body" id="Demo6" role="region" aria-labelledby="m3">
           <p>战略传播涉及为实现特定组织目标而对传播工作进行有意识的规划、执行与评估。</p>
           <ol>
             <li><strong>目标设定:</strong>明确清晰、可衡量的目标。</li>
@@ -776,7 +797,7 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
         <button class="acc-btn" onclick="toggleAcc(this,'Demo12')" aria-expanded="false" aria-controls="Demo12" id="m4">
           技术传播 <span class="caret" aria-hidden="true">▼</span>
         </button>
-        <div class="acc-body" id="Demo12" role="region">
+        <div class="acc-body" id="Demo12" role="region" aria-labelledby="m4">
           <p>技术传播以清晰、简洁且易于理解的方式传达复杂信息——这对帮助用户理解并有效使用产品、系统或服务至关重要。</p>
           <ol>
             <li><strong>技术写作:</strong>用户手册、操作指南及各类文档。</li>
@@ -792,7 +813,7 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
         <button class="acc-btn" onclick="toggleAcc(this,'Demo3')" aria-expanded="false" aria-controls="Demo3" id="m0">
           培训传播 <span class="caret" aria-hidden="true">▼</span>
         </button>
-        <div class="acc-body" id="Demo3" role="region">
+        <div class="acc-body" id="Demo3" role="region" aria-labelledby="m0">
           <p>培训传播涵盖在培训过程中用于传达信息与指导的方法与实践——旨在提升学习体验。</p>
           <ol>
             <li><strong>清晰性:</strong>清楚易懂的指导与信息。</li>
@@ -895,7 +916,7 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
   </section>
 
   <!-- Tools -->
-  <section class="section" aria-labelledby="tools-h" style="background:var(--white);">
+  <section class="section" id="HowWeWork" aria-labelledby="tools-h" style="background:var(--white);">
     <div class="container">
       <p class="section-title">我们的工作方式</p>
       <h2 id="tools-h" style="margin-bottom:.75rem;">我们的主要工具</h2>
@@ -965,7 +986,7 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
 </main>
 
 <!-- Footer -->
-<footer role="contentinfo">
+<footer>
   <div class="footer-brand"><img src="karsaj-mark.png" alt="KARSAJ CONTENT logo" width="22" height="22">KARSAJ <span>CONTENT</span></div>
   <div class="footer-tagline">Ensure Customer Success™</div>
   <div class="footer-social">
@@ -1010,6 +1031,17 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
   })();
 
   /* Dropdown */
+  function toggleAboutDD(e) {
+    e.stopPropagation();
+    var dd = document.getElementById('aboutDD');
+    var open = dd.classList.toggle('open');
+    dd.querySelector('button').setAttribute('aria-expanded', open);
+  }
+  function closeAboutDD() {
+    var dd = document.getElementById('aboutDD');
+    dd.classList.remove('open');
+    dd.querySelector('button').setAttribute('aria-expanded', 'false');
+  }
   function toggleDD(e) {
     e.stopPropagation();
     var dd = document.getElementById('servicesDD');
@@ -1049,6 +1081,8 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
   }
 
   document.addEventListener('click', function(e) {
+    var aboutDd = document.getElementById('aboutDD');
+    if (aboutDd && !aboutDd.contains(e.target)) closeAboutDD();
     var dd = document.getElementById('servicesDD');
     if (dd && !dd.contains(e.target)) closeDD();
     var coreDd = document.getElementById('coreServicesDD');
@@ -1056,7 +1090,12 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
     var langDd = document.getElementById('langDD');
     if (langDd && !langDd.contains(e.target)) closeLangDD();
   });
-  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { closeDD(); closeCoreDD(); closeLangDD(); } });
+  document.addEventListener('keydown', function(e) {
+    if (e.key !== 'Escape') return;
+    closeAboutDD(); closeDD(); closeCoreDD(); closeLangDD();
+    var m = document.getElementById('mobileMenu');
+    if (m && m.classList.contains('open')) { closeMobile(); var t = document.querySelector('.nav-toggle'); if (t) t.focus(); }
+  });
 
   /* Mobile menu */
   function toggleMobile(btn) {

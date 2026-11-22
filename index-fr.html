@@ -15,8 +15,15 @@
 <meta name="keywords" content="rédaction technique, stratégie de contenu, marketing numérique, conception pédagogique, formation en ligne, rédaction UX, communications marketing, Toronto, Canada">
 <meta name="author" content="KARSAJ CONTENT">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://www.karsaj.com/">
+<link rel="canonical" href="https://www.karsaj.com/index-fr.html">
 <link rel="icon" href="cc.png">
+<link rel="apple-touch-icon" href="cc.png">
+<link rel="alternate" hreflang="en" href="https://www.karsaj.com/">
+<link rel="alternate" hreflang="fr-CA" href="https://www.karsaj.com/index-fr.html">
+<link rel="alternate" hreflang="de" href="https://www.karsaj.com/index-de.html">
+<link rel="alternate" hreflang="zh-CN" href="https://www.karsaj.com/index-zh.html">
+<link rel="alternate" hreflang="ja" href="https://www.karsaj.com/index-ja.html">
+<link rel="alternate" hreflang="x-default" href="https://www.karsaj.com/">
 <!-- Mobile browser chrome colour -->
 <meta name="theme-color" content="#111111">
 <meta name="msapplication-TileColor" content="#FECB00">
@@ -28,10 +35,11 @@
 
 <!-- ── Open Graph ─────────────────────────────────────── -->
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://www.karsaj.com/">
+<meta property="og:url" content="https://www.karsaj.com/index-fr.html">
 <meta property="og:title" content="KARSAJ CONTENT | Rédaction technique et marketing numérique">
 <meta property="og:description" content="Services experts en rédaction technique, stratégie de contenu, marketing numérique et communications multimédias. Nous aidons les organisations à communiquer clairement, efficacement et à grande échelle depuis plus de 20 ans.">
 <meta property="og:image" content="https://www.karsaj.com/dc2.gif">
+<meta property="og:image:alt" content="Architecture urbaine moderne symbolisant la communication professionnelle">
 <meta property="og:locale" content="fr_CA">
 <meta property="og:site_name" content="KARSAJ CONTENT">
 
@@ -40,6 +48,7 @@
 <meta name="twitter:title" content="KARSAJ CONTENT | Rédaction technique et marketing numérique">
 <meta name="twitter:description" content="Services experts en rédaction technique, stratégie de contenu, marketing numérique et communications multimédias pour des organisations de toutes tailles.">
 <meta name="twitter:image" content="https://www.karsaj.com/dc2.gif">
+<meta name="twitter:image:alt" content="Architecture urbaine moderne symbolisant la communication professionnelle">
 
 <!-- ── Structured Data: ProfessionalService ─────────── -->
 <script type="application/ld+json">
@@ -106,7 +115,7 @@
 <!-- ── Fonts ──────────────────────────────────────────── -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Source+Serif+4:wght@300;400&display=swap&font-display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Source+Serif+4:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
 /* ── Design tokens ────────────────────────────────────── */
@@ -235,7 +244,9 @@ li { margin-bottom: .35rem; }
   box-shadow: 0 8px 24px rgba(0,0,0,.12); z-index: 300;
 }
 .nav-dd:hover .nav-dd-menu,
+.nav-dd:focus-within .nav-dd-menu,
 .nav-dd.open  .nav-dd-menu { display: block; }
+main section[id] { scroll-margin-top: calc(var(--nav-h, 60px) + 8px); }
 .nav-dd-menu a {
   display: flex; align-items: center; min-height: 44px;
   padding: .75rem 1.1rem;
@@ -566,51 +577,59 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
 <a href="#main-content" class="visually-hidden" style="position:fixed;top:8px;left:8px;z-index:9999;background:var(--orange);color:#fff;padding:.5rem 1rem;border-radius:4px;font-family:Montserrat,sans-serif;font-weight:700;text-decoration:none;" onfocus="this.style.clip='auto';this.style.width='auto';this.style.height='auto';">Passer au contenu principal</a>
 
 <!-- ── Navigation ─────────────────────────────────────── -->
-<nav class="nav" role="navigation" aria-label="Navigation principale">
+<nav class="nav" aria-label="Navigation principale">
   <a href="#home" class="nav-brand" aria-label="KARSAJ CONTENT – accueil"><img src="karsaj-mark.png" alt="" width="20" height="20">KARSAJ <span>CONTENT</span></a>
 
-  <div class="nav-links" role="menubar">
-    <a href="#About" role="menuitem" data-scroll-to="About">À propos</a>
+  <div class="nav-links">
+    <div class="nav-dd" id="aboutDD">
+      <button class="nav-dd-btn" aria-expanded="false" onclick="toggleAboutDD(event)">
+        À propos <span class="caret" aria-hidden="true">▼</span>
+      </button>
+      <div class="nav-dd-menu">
+        <a href="#About" data-scroll-to="About" onclick="closeAboutDD()">Ce que nous faisons</a>
+        <a href="#HowWeWork" data-scroll-to="HowWeWork" onclick="closeAboutDD()">Notre façon de travailler</a>
+      </div>
+    </div>
 
     <div class="nav-dd" id="servicesDD">
-      <button class="nav-dd-btn" aria-haspopup="true" aria-expanded="false" onclick="toggleDD(event)">
+      <button class="nav-dd-btn" aria-expanded="false" onclick="toggleDD(event)">
         Types de contenu <span class="caret" aria-hidden="true">▼</span>
       </button>
-      <div class="nav-dd-menu" role="menu">
-        <a href="#Services" role="menuitem" onclick="openAcc(event,'Demo7');closeDD();">Communications d'entreprise</a>
-        <a href="#Services" role="menuitem" onclick="openAcc(event,'Demo4');closeDD();">Communications marketing</a>
-        <a href="#Services" role="menuitem" onclick="openAcc(event,'Demo5');closeDD();">Communications multimédias</a>
-        <a href="#Services" role="menuitem" onclick="openAcc(event,'Demo6');closeDD();">Communications stratégiques</a>
-        <a href="#Services" role="menuitem" onclick="openAcc(event,'Demo12');closeDD();">Communications techniques</a>
-        <a href="#Services" role="menuitem" onclick="openAcc(event,'Demo3');closeDD();">Communications de formation</a>
+      <div class="nav-dd-menu">
+        <a href="#Services" onclick="openAcc(event,'Demo7');closeDD();">Communications d'entreprise</a>
+        <a href="#Services" onclick="openAcc(event,'Demo4');closeDD();">Communications marketing</a>
+        <a href="#Services" onclick="openAcc(event,'Demo5');closeDD();">Communications multimédias</a>
+        <a href="#Services" onclick="openAcc(event,'Demo6');closeDD();">Communications stratégiques</a>
+        <a href="#Services" onclick="openAcc(event,'Demo12');closeDD();">Communications techniques</a>
+        <a href="#Services" onclick="openAcc(event,'Demo3');closeDD();">Communications de formation</a>
       </div>
     </div>
 
     <div class="nav-dd" id="coreServicesDD">
-      <button class="nav-dd-btn" aria-haspopup="true" aria-expanded="false" onclick="toggleCoreDD(event)">
+      <button class="nav-dd-btn" aria-expanded="false" onclick="toggleCoreDD(event)">
         Services essentiels <span class="caret" aria-hidden="true">▼</span>
       </button>
-      <div class="nav-dd-menu" role="menu">
-        <a href="#FAQ" role="menuitem" onclick="openAcc(event,'Demo14');closeCoreDD();">Stratégie de contenu</a>
-        <a href="#FAQ" role="menuitem" onclick="openAcc(event,'Demo15');closeCoreDD();">Conception de contenu</a>
-        <a href="#FAQ" role="menuitem" onclick="openAcc(event,'Demo16');closeCoreDD();">Développement de contenu</a>
-        <a href="#FAQ" role="menuitem" onclick="openAcc(event,'Demo120');closeCoreDD();">Marketing de contenu</a>
-        <a href="#FAQ" role="menuitem" onclick="openAcc(event,'Demo148');closeCoreDD();">Automatisation du marketing</a>
+      <div class="nav-dd-menu">
+        <a href="#FAQ" onclick="openAcc(event,'Demo14');closeCoreDD();">Stratégie de contenu</a>
+        <a href="#FAQ" onclick="openAcc(event,'Demo15');closeCoreDD();">Conception de contenu</a>
+        <a href="#FAQ" onclick="openAcc(event,'Demo16');closeCoreDD();">Développement de contenu</a>
+        <a href="#FAQ" onclick="openAcc(event,'Demo120');closeCoreDD();">Marketing de contenu</a>
+        <a href="#FAQ" onclick="openAcc(event,'Demo148');closeCoreDD();">Automatisation du marketing</a>
       </div>
     </div>
 
-    <a href="#Contact" role="menuitem" data-scroll-to="Contact">Contact</a>
+    <a href="#Contact" data-scroll-to="Contact">Contact</a>
 
     <div class="nav-dd" id="langDD">
-      <button class="nav-dd-btn" aria-haspopup="true" aria-expanded="false" onclick="toggleLangDD(event)" aria-label="Choisir la langue">
+      <button class="nav-dd-btn" aria-expanded="false" onclick="toggleLangDD(event)" aria-label="Choisir la langue">
         <svg class="flag-icon" aria-hidden="true"><use href="#flag-fr"></use></svg>FR <span class="caret" aria-hidden="true">▼</span>
       </button>
-      <div class="nav-dd-menu" role="menu">
-        <a href="index.html" role="menuitem" hreflang="en" lang="en"><svg class="flag-icon" aria-hidden="true"><use href="#flag-ca"></use></svg>English</a>
-        <a href="index-fr.html" role="menuitem" hreflang="fr-CA" lang="fr"><svg class="flag-icon" aria-hidden="true"><use href="#flag-fr"></use></svg>Français</a>
-        <a href="index-de.html" role="menuitem" hreflang="de" lang="de"><svg class="flag-icon" aria-hidden="true"><use href="#flag-de"></use></svg>Deutsch</a>
-        <a href="index-zh.html" role="menuitem" hreflang="zh-CN" lang="zh-CN"><svg class="flag-icon" aria-hidden="true"><use href="#flag-cn"></use></svg>中文</a>
-        <a href="index-ja.html" role="menuitem" hreflang="ja" lang="ja"><svg class="flag-icon" aria-hidden="true"><use href="#flag-jp"></use></svg>日本語</a>
+      <div class="nav-dd-menu">
+        <a href="index.html" hreflang="en" lang="en"><svg class="flag-icon" aria-hidden="true"><use href="#flag-ca"></use></svg>English</a>
+        <a href="index-fr.html" hreflang="fr-CA" lang="fr"><svg class="flag-icon" aria-hidden="true"><use href="#flag-fr"></use></svg>Français</a>
+        <a href="index-de.html" hreflang="de" lang="de"><svg class="flag-icon" aria-hidden="true"><use href="#flag-de"></use></svg>Deutsch</a>
+        <a href="index-zh.html" hreflang="zh-CN" lang="zh-CN"><svg class="flag-icon" aria-hidden="true"><use href="#flag-cn"></use></svg>中文</a>
+        <a href="index-ja.html" hreflang="ja" lang="ja"><svg class="flag-icon" aria-hidden="true"><use href="#flag-jp"></use></svg>日本語</a>
       </div>
     </div>
   </div>
@@ -624,6 +643,8 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
 <!-- Mobile drawer -->
 <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Navigation mobile" aria-modal="true">
   <a href="#About" data-scroll-to="About" onclick="closeMobile()">À propos</a>
+  <a href="#About" class="sub" data-scroll-to="About" onclick="closeMobile()">↳ Ce que nous faisons</a>
+  <a href="#HowWeWork" class="sub" data-scroll-to="HowWeWork" onclick="closeMobile()">↳ Notre façon de travailler</a>
   <a href="#Services" data-scroll-to="Services" onclick="closeMobile()" style="color:var(--orange);">Services de communication</a>
   <a href="#Services" class="sub" onclick="openAcc(event,'Demo7');closeMobile();">↳ Entreprise</a>
   <a href="#Services" class="sub" onclick="openAcc(event,'Demo4');closeMobile();">↳ Marketing</a>
@@ -712,7 +733,7 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
         <button class="acc-btn" onclick="toggleAcc(this,'Demo7')" aria-expanded="false" aria-controls="Demo7" id="m1b">
           Communications d'entreprise <span class="caret" aria-hidden="true">▼</span>
         </button>
-        <div class="acc-body" id="Demo7" role="region">
+        <div class="acc-body" id="Demo7" role="region" aria-labelledby="m1b">
           <p>Les communications d'entreprise gèrent et coordonnent les messages entre une organisation et ses parties prenantes internes et externes — employés, dirigeants, investisseurs, médias et public — afin de construire une voix de marque cohérente, de protéger la réputation et de soutenir les objectifs d'affaires.</p>
           <ol>
             <li><strong>Communications internes :</strong> Bulletins destinés aux employés, contenu intranet, notes de la direction et messages de gestion du changement qui maintiennent le personnel informé et aligné.</li>
@@ -729,7 +750,7 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
         <button class="acc-btn" onclick="toggleAcc(this,'Demo4')" aria-expanded="false" aria-controls="Demo4" id="m1">
           Communications marketing <span class="caret" aria-hidden="true">▼</span>
         </button>
-        <div class="acc-body" id="Demo4" role="region">
+        <div class="acc-body" id="Demo4" role="region" aria-labelledby="m1">
           <p>Les communications marketing (MarCom) englobent tous les messages et médias que vous utilisez pour communiquer avec votre marché — publicité, marketing direct, image de marque, relations publiques, médias sociaux, et plus encore. Les principaux objectifs sont de :</p>
           <ol>
             <li>Créer et maintenir la demande et la préférence pour votre produit ou service.</li>
@@ -744,7 +765,7 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
         <button class="acc-btn" onclick="toggleAcc(this,'Demo5')" aria-expanded="false" aria-controls="Demo5" id="m2">
           Communications multimédias <span class="caret" aria-hidden="true">▼</span>
         </button>
-        <div class="acc-body" id="Demo5" role="region">
+        <div class="acc-body" id="Demo5" role="region" aria-labelledby="m2">
           <p>Les communications multimédias combinent texte, audio, images, animation et vidéo pour créer des messages cohérents et significatifs qui mobilisent plusieurs sens.</p>
           <ol>
             <li><strong>Narration visuelle :</strong> Des visuels de haute qualité transmettent l'information et suscitent l'émotion plus efficacement que le texte seul.</li>
@@ -759,7 +780,7 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
         <button class="acc-btn" onclick="toggleAcc(this,'Demo6')" aria-expanded="false" aria-controls="Demo6" id="m3">
           Communications stratégiques <span class="caret" aria-hidden="true">▼</span>
         </button>
-        <div class="acc-body" id="Demo6" role="region">
+        <div class="acc-body" id="Demo6" role="region" aria-labelledby="m3">
           <p>Les communications stratégiques impliquent la planification, l'exécution et l'évaluation délibérées des efforts de communication afin d'atteindre des objectifs organisationnels précis.</p>
           <ol>
             <li><strong>Définition des objectifs :</strong> Établir des objectifs clairs et mesurables.</li>
@@ -776,7 +797,7 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
         <button class="acc-btn" onclick="toggleAcc(this,'Demo12')" aria-expanded="false" aria-controls="Demo12" id="m4">
           Communications techniques <span class="caret" aria-hidden="true">▼</span>
         </button>
-        <div class="acc-body" id="Demo12" role="region">
+        <div class="acc-body" id="Demo12" role="region" aria-labelledby="m4">
           <p>Les communications techniques transmettent une information complexe de manière claire, concise et accessible — essentielles pour aider les utilisateurs à comprendre et à utiliser efficacement des produits, systèmes ou services.</p>
           <ol>
             <li><strong>Rédaction technique :</strong> Manuels d'utilisation, guides pratiques et documentation.</li>
@@ -792,7 +813,7 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
         <button class="acc-btn" onclick="toggleAcc(this,'Demo3')" aria-expanded="false" aria-controls="Demo3" id="m0">
           Communications de formation <span class="caret" aria-hidden="true">▼</span>
         </button>
-        <div class="acc-body" id="Demo3" role="region">
+        <div class="acc-body" id="Demo3" role="region" aria-labelledby="m0">
           <p>Les communications de formation englobent les méthodes et pratiques utilisées pour transmettre l'information et les consignes durant les séances de formation — dans le but d'améliorer l'expérience d'apprentissage.</p>
           <ol>
             <li><strong>Clarté :</strong> Consignes et informations claires et faciles à comprendre.</li>
@@ -895,7 +916,7 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
   </section>
 
   <!-- Tools -->
-  <section class="section" aria-labelledby="tools-h" style="background:var(--white);">
+  <section class="section" id="HowWeWork" aria-labelledby="tools-h" style="background:var(--white);">
     <div class="container">
       <p class="section-title">Notre méthode de travail</p>
       <h2 id="tools-h" style="margin-bottom:.75rem;">Nos principaux outils</h2>
@@ -965,7 +986,7 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
 </main>
 
 <!-- Footer -->
-<footer role="contentinfo">
+<footer>
   <div class="footer-brand"><img src="karsaj-mark.png" alt="KARSAJ CONTENT logo" width="22" height="22">KARSAJ <span>CONTENT</span></div>
   <div class="footer-tagline">Ensure Customer Success™</div>
   <div class="footer-social">
@@ -1010,6 +1031,17 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
   })();
 
   /* Dropdown */
+  function toggleAboutDD(e) {
+    e.stopPropagation();
+    var dd = document.getElementById('aboutDD');
+    var open = dd.classList.toggle('open');
+    dd.querySelector('button').setAttribute('aria-expanded', open);
+  }
+  function closeAboutDD() {
+    var dd = document.getElementById('aboutDD');
+    dd.classList.remove('open');
+    dd.querySelector('button').setAttribute('aria-expanded', 'false');
+  }
   function toggleDD(e) {
     e.stopPropagation();
     var dd = document.getElementById('servicesDD');
@@ -1049,6 +1081,8 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
   }
 
   document.addEventListener('click', function(e) {
+    var aboutDd = document.getElementById('aboutDD');
+    if (aboutDd && !aboutDd.contains(e.target)) closeAboutDD();
     var dd = document.getElementById('servicesDD');
     if (dd && !dd.contains(e.target)) closeDD();
     var coreDd = document.getElementById('coreServicesDD');
@@ -1056,7 +1090,12 @@ footer { background: var(--black); color: var(--white); padding: 3rem 1.5rem 2re
     var langDd = document.getElementById('langDD');
     if (langDd && !langDd.contains(e.target)) closeLangDD();
   });
-  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { closeDD(); closeCoreDD(); closeLangDD(); } });
+  document.addEventListener('keydown', function(e) {
+    if (e.key !== 'Escape') return;
+    closeAboutDD(); closeDD(); closeCoreDD(); closeLangDD();
+    var m = document.getElementById('mobileMenu');
+    if (m && m.classList.contains('open')) { closeMobile(); var t = document.querySelector('.nav-toggle'); if (t) t.focus(); }
+  });
 
   /* Mobile menu */
   function toggleMobile(btn) {
